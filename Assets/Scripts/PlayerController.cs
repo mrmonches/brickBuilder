@@ -3,20 +3,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Camera SceneCamera;
-
     private PlayerInput _playerInput;
 
     private InputAction select;
 
-    //private Vector3 mousePosition;
-    private bool selectActive;
+    private Vector3 mousePosition;
 
+    // Camera-Grid Settings
+    [SerializeField] private Camera SceneCamera;
     private Vector3 lastPosition;
 
     [SerializeField] private float CastDistance;
 
-    [SerializeField] private LayerMask LevelMask;
+    [SerializeField] private LayerMask LevelMask, BrickMask;
+
+    // Brick Settings
+    [SerializeField] private BrickController _brickController;
 
     private void Awake()
     {
@@ -31,21 +33,26 @@ public class PlayerController : MonoBehaviour
     }
     private void Select_started(InputAction.CallbackContext obj)
     {
-        selectActive = true;
+        if (_brickController != null && !_brickController.IsPlaced)
+        {
+            _brickController.IsHeld = true;
+        }
     }
     private void Select_canceled(InputAction.CallbackContext obj)
     {
-        selectActive = false;
+        if (_brickController != null && _brickController.IsHeld)
+        {
+            _brickController.IsHeld = false;
+        }
     }
 
-    //private void OnMouse(InputValue mousePos)
-    //{
-    //    mousePosition = mousePos.Get<Vector2>();
-    //}
+    private void OnMouse(InputValue mousePos)
+    {
+        mousePosition = mousePos.Get<Vector2>();
+    }
 
     public Vector3 GetSelectedMapPosition()
     {
-        Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = SceneCamera.nearClipPlane;
         
         RaycastHit hit;
@@ -57,14 +64,24 @@ public class PlayerController : MonoBehaviour
         return lastPosition;
     }
 
-    private void GridIndication()
+    private void BrickHighlight()
     {
-        //Vector3Int gridPosition = _grid.WorldToCell(GetSelectedMapPosition());
+        RaycastHit hit;
+        if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, BrickMask))
+        {
+            if (hit.rigidbody.gameObject.GetComponent<BrickController>() != null)
+            {
+                _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
+            }
+        }
+        else if (_brickController != null && !_brickController.IsHeld)
+        {
+            _brickController = null;
+        }
     }
 
     private void Update()
     {
-        //MouseIndicator.transform.position = GetSelectedMapPosition();
-        //CursorIndicator.transform.position = _grid.CellToWorld(gridPosition)
+        BrickHighlight();
     }
 }

@@ -9,7 +9,7 @@
                     "name": "Mouse",
                     "type": "Value",
                     "id": "8c847916-2326-4fd0-bc0c-70ecade70b8a",
-                    "expectedControlType": "Delta",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -28,7 +28,7 @@
                 {
                     "name": "",
                     "id": "36e494ee-5f55-46d0-b18b-6b24f16d5e43",
-                    "path": "<Mouse>/delta",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
