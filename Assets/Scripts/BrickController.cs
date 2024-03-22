@@ -7,6 +7,7 @@ public class BrickController : MonoBehaviour
 {
     [SerializeField] private BrickType _brickType;
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private GridSystem _gridSystem;
 
     [SerializeField] private float YOffset;
     [SerializeField] private float FollowSpeed;
@@ -15,24 +16,41 @@ public class BrickController : MonoBehaviour
 
     private bool isPlaced;
     private bool isHeld = false;
+    private bool isPlacing;
+
+    [SerializeField] private int DefaultLayer, BrickLayer;
 
     public bool IsPlaced { get => isPlaced; set => isPlaced = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }
     public Rigidbody Rigidbody { get => _rigidbody; set => _rigidbody = value; }
+    public bool IsPlacing { get => isPlacing; set => isPlacing = value; }
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+
+        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        _gridSystem = GameObject.Find("Player").GetComponent<GridSystem>();
     }
 
     /// <summary>
     /// Script that allows the brick to smoothly follow the mouse
     /// Currently not in use
     /// </summary>
-    //private void FollowPlayerMouse()
-    //{
-    //    transform.position = Vector3.MoveTowards(transform.position, AdjustedMousePos(), FollowSpeed * Time.deltaTime);
-    //}
+    private void FollowPlayerMouse()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, AdjustedMousePos(), FollowSpeed * Time.deltaTime);
+    }
+
+    public void SetDefaultLayer()
+    {
+        gameObject.layer = DefaultLayer;
+    }
+
+    public void SetBrickLayer()
+    {
+        gameObject.layer = BrickLayer;
+    }
 
     private Vector3 AdjustedMousePos()
     {
@@ -40,11 +58,21 @@ public class BrickController : MonoBehaviour
             + YOffset, _playerController.GetSelectedMapPosition().z);
     }
 
-    //private void LateUpdate()
-    //{
-    //    if (IsHeld)
-    //    {
-    //        FollowPlayerMouse();
-    //    }
-    //}
+    public void GoToSelectedSpot(GameObject selectedSpot)
+    {
+        transform.position = selectedSpot.transform.position;
+
+        if (!IsPlacing)
+        {
+            IsPlacing = true;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (IsHeld && !IsPlacing)
+        {
+            FollowPlayerMouse();
+        }
+    }
 }

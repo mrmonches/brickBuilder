@@ -45,13 +45,13 @@ public class PlayerController : MonoBehaviour
         {
             _brickController.IsHeld = true;
 
-            _gridSystem.GetCurrentBrick(_brickController.gameObject);
-
             isHolding = true;
 
             _brickController.Rigidbody.useGravity = false;
 
             _brickController.Rigidbody.excludeLayers = BrickMask;
+
+            _brickController.SetDefaultLayer();
         }
     }
     private void Select_canceled(InputAction.CallbackContext obj)
@@ -64,7 +64,9 @@ public class PlayerController : MonoBehaviour
 
             _brickController.Rigidbody.useGravity = true;
 
-            _brickController.Rigidbody.excludeLayers = blankMask;
+            _brickController.Rigidbody.excludeLayers = default;
+
+            _brickController.SetBrickLayer();
         }
     }
 
@@ -91,10 +93,18 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, BrickMask))
         {
-            if (hit.rigidbody.gameObject.GetComponent<BrickController>() != null)
+            if (hit.rigidbody.gameObject.GetComponent<BrickController>() != null && _brickController == null)
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
             }
+            else if (_brickController != null && _brickController.IsHeld)
+            {
+                _brickController.GoToSelectedSpot(hit.rigidbody.gameObject);
+            }
+        }
+        else if (_brickController != null && _brickController.IsPlacing && _brickController.IsHeld)
+        {
+            _brickController.IsPlacing = false;
         }
         else if (_brickController != null && !_brickController.IsHeld)
         {
