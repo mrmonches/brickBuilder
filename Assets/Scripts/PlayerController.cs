@@ -16,9 +16,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float CastDistance;
 
     [SerializeField] private LayerMask LevelMask, BrickMask;
+    private LayerMask blankMask;
 
     // Brick Settings
-    [SerializeField] private BrickController _brickController;
+    private BrickController _brickController;
+    private bool isHolding;
+
+    [SerializeField] private GridSystem _gridSystem;
+
+    public bool IsHolding { get => isHolding; set => isHolding = value; }
 
     private void Awake()
     {
@@ -30,12 +36,22 @@ public class PlayerController : MonoBehaviour
 
         select.started += Select_started;
         select.canceled += Select_canceled;
+
+        _gridSystem = GetComponent<GridSystem>();
     }
     private void Select_started(InputAction.CallbackContext obj)
     {
         if (_brickController != null && !_brickController.IsPlaced)
         {
             _brickController.IsHeld = true;
+
+            _gridSystem.GetCurrentBrick(_brickController.gameObject);
+
+            isHolding = true;
+
+            _brickController.Rigidbody.useGravity = false;
+
+            _brickController.Rigidbody.excludeLayers = BrickMask;
         }
     }
     private void Select_canceled(InputAction.CallbackContext obj)
@@ -43,6 +59,12 @@ public class PlayerController : MonoBehaviour
         if (_brickController != null && _brickController.IsHeld)
         {
             _brickController.IsHeld = false;
+
+            isHolding = false;
+
+            _brickController.Rigidbody.useGravity = true;
+
+            _brickController.Rigidbody.excludeLayers = blankMask;
         }
     }
 
