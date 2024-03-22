@@ -15,14 +15,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float CastDistance;
 
-    [SerializeField] private LayerMask LevelMask, BrickMask;
-    private LayerMask blankMask;
+    [SerializeField] private LayerMask LevelMask, BrickMask, OutlineMask;
 
     // Brick Settings
     private BrickController _brickController;
     private bool isHolding;
 
-    [SerializeField] private GridSystem _gridSystem;
+    // Outline Settings
+    private OutlineController _outlineController;
 
     public bool IsHolding { get => isHolding; set => isHolding = value; }
 
@@ -36,8 +36,6 @@ public class PlayerController : MonoBehaviour
 
         select.started += Select_started;
         select.canceled += Select_canceled;
-
-        _gridSystem = GetComponent<GridSystem>();
     }
     private void Select_started(InputAction.CallbackContext obj)
     {
@@ -91,24 +89,28 @@ public class PlayerController : MonoBehaviour
     private void BrickHighlight()
     {
         RaycastHit hit;
+        // If mouse is hovering over a brick
         if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, BrickMask))
         {
+            // If the brick has a BrickController component and the script doesn't have a reference for BrickController
             if (hit.rigidbody.gameObject.GetComponent<BrickController>() != null && _brickController == null)
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
             }
-            else if (_brickController != null && _brickController.IsHeld)
+            // If this script has a BrickController reference and the brick is not held
+            else if (_brickController != null && !_brickController.IsHeld)
             {
-                _brickController.GoToSelectedSpot(hit.rigidbody.gameObject);
+                _brickController = null;
             }
         }
-        else if (_brickController != null && _brickController.IsPlacing && _brickController.IsHeld)
+        else if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, OutlineMask))
         {
-            _brickController.IsPlacing = false;
-        }
-        else if (_brickController != null && !_brickController.IsHeld)
-        {
-            _brickController = null;
+            if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != null && _outlineController == null)
+            {
+                _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
+
+                if (_outlineController.OutlineCheck)
+            }
         }
     }
 

@@ -7,7 +7,6 @@ public class BrickController : MonoBehaviour
 {
     [SerializeField] private BrickType _brickType;
     [SerializeField] private PlayerController _playerController;
-    [SerializeField] private GridSystem _gridSystem;
 
     [SerializeField] private float YOffset;
     [SerializeField] private float FollowSpeed;
@@ -30,12 +29,10 @@ public class BrickController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
 
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        _gridSystem = GameObject.Find("Player").GetComponent<GridSystem>();
     }
 
     /// <summary>
     /// Script that allows the brick to smoothly follow the mouse
-    /// Currently not in use
     /// </summary>
     private void FollowPlayerMouse()
     {
