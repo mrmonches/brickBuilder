@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             {
                 _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
 
-                if (_outlineController.OutlineCheck)
+                //if (_outlineController.OutlineCheck)
             }
         }
     }
