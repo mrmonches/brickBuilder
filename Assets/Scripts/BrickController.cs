@@ -7,6 +7,8 @@ public class BrickController : MonoBehaviour
     [SerializeField] private float YOffset;
     [SerializeField] private float FollowSpeed;
 
+    private GameObject placedSpot;
+
     private Rigidbody _rigidbody;
 
     [SerializeField] private bool isPlaced;
@@ -16,6 +18,8 @@ public class BrickController : MonoBehaviour
     [SerializeField] private int DefaultLayer, BrickLayer;
 
     [SerializeField] private BrickDataSO _brickData;
+
+    private bool lockBrick;
 
     public bool IsPlaced { get => isPlaced; set => isPlaced = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }
@@ -56,6 +60,8 @@ public class BrickController : MonoBehaviour
 
     public void GoToSelectedSpot(GameObject selectedSpot)
     {
+        placedSpot = selectedSpot;
+
         transform.position = selectedSpot.transform.position;
 
         if (!IsPlacing)
@@ -69,6 +75,13 @@ public class BrickController : MonoBehaviour
         if (IsHeld && !IsPlacing)
         {
             FollowPlayerMouse();
+        }
+
+        if (IsPlaced && !lockBrick)
+        {
+            lockBrick = true;
+
+            transform.position = placedSpot.transform.position;
         }
     }
 }

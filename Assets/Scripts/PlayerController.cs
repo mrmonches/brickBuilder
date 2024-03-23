@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _playerInput;
 
     private InputAction select;
+    private InputAction cameraControl;
 
     private Vector3 mousePosition;
 
@@ -18,11 +19,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask LevelMask, BrickMask, OutlineMask;
 
     // Brick Settings
-    [SerializeField] private BrickController _brickController;
+    private BrickController _brickController;
     private bool isHolding;
 
     // Outline Settings
     private OutlineController _outlineController;
+
+    // Camera Settings
+    [SerializeField] private CameraController _cameraController;
 
 
     private void Awake()
@@ -32,10 +36,17 @@ public class PlayerController : MonoBehaviour
         _playerInput.currentActionMap.Enable();
 
         select = _playerInput.currentActionMap.FindAction("Select");
+        cameraControl = _playerInput.currentActionMap.FindAction("CameraControl");
 
         select.started += Select_started;
         select.canceled += Select_canceled;
+
+        cameraControl.started += CameraControl_started;
+        cameraControl.canceled += CameraControl_canceled;
     }
+
+
+
     private void Select_started(InputAction.CallbackContext obj)
     {
         if (_brickController != null && !_brickController.IsPlaced)
@@ -80,6 +91,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void CameraControl_started(InputAction.CallbackContext obj)
+    {
+        _cameraController.CameraInput = cameraControl.ReadValue<float>();
+    }
+    private void CameraControl_canceled(InputAction.CallbackContext obj)
+    {
+        _cameraController.CameraInput = 0f;
+    }
+
     private void OnMouse(InputValue mousePos)
     {
         mousePosition = mousePos.Get<Vector2>();
@@ -122,6 +142,11 @@ public class PlayerController : MonoBehaviour
             {
                 _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
             }
+            else if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != _outlineController && 
+                _brickController.IsPlacing)
+            {
+                _brickController.IsPlacing = false;
+            }
             else if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != _outlineController)
             {
                 _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
@@ -131,7 +156,7 @@ public class PlayerController : MonoBehaviour
                 _brickController.GoToSelectedSpot(hit.rigidbody.gameObject);
             }
         }
-        else
+        else if (_brickController != null || _outlineController != null) 
         {
             if (_brickController != null && _brickController.IsPlacing && _brickController.IsHeld)
             {
@@ -150,5 +175,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         BrickHighlight();
+    }
+
+    private void OnDestroy()
+    {
+        select.started -= Select_started;
+        select.canceled -= Select_canceled;
+
+        cameraControl.started -= CameraControl_started;
+        cameraControl.canceled -= CameraControl_canceled;
     }
 }

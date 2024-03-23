@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private Camera _camera;
+    private float cameraInput;
+    [SerializeField] private GameObject BuildingPlane;
 
-    private void Start()
-    {
-        _camera = GetComponent<Camera>();
-    }
+    public float CameraInput { get => cameraInput; set => cameraInput = value; }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        
+        if (cameraInput != 0)
+        {
+            transform.RotateAround(BuildingPlane.transform.position, Vector3.up, cameraInput);
+        }
     }
 }
