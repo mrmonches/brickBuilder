@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BrickController : MonoBehaviour
 {
-    [SerializeField] private BrickType _brickType;
     [SerializeField] private PlayerController _playerController;
 
     [SerializeField] private float YOffset;
@@ -13,16 +9,19 @@ public class BrickController : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
-    private bool isPlaced;
+    [SerializeField] private bool isPlaced;
     private bool isHeld = false;
     private bool isPlacing;
 
     [SerializeField] private int DefaultLayer, BrickLayer;
 
+    [SerializeField] private BrickDataSO _brickData;
+
     public bool IsPlaced { get => isPlaced; set => isPlaced = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }
     public Rigidbody Rigidbody { get => _rigidbody; set => _rigidbody = value; }
     public bool IsPlacing { get => isPlacing; set => isPlacing = value; }
+    public BrickDataSO BrickData { get => _brickData; set => _brickData = value; }
 
     private void Awake()
     {

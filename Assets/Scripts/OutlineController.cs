@@ -4,27 +4,29 @@ public class OutlineController : MonoBehaviour
 {
     [SerializeField] private BrickDataSO OutlineData;
 
-    private GameObject currentBrick;
-
     private bool outlineCheck = true;
 
     public bool OutlineCheck { get => outlineCheck; private set => outlineCheck = value; }
 
-    public void BrickCheck(BrickDataSO data, GameObject brick)
+    public bool BrickCheck(BrickDataSO data)
     {
-        if (currentBrick == null)
+        if (data.Color == OutlineData.Color && data.BrickType == OutlineData.BrickType)
         {
-            if (data.Color == OutlineData.Color && data.BrickType == OutlineData.BrickType)
-            {
-                OutlineCheck = true;
+            return true;
+        }
+        else
+        {
+            return false;
+        } 
+    }
 
-                currentBrick = brick;
-
-                currentBrick.GetComponent<BrickController>().GoToSelectedSpot(gameObject);
-            }
-            else
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Brick"))
+        {
+            if (other.gameObject.GetComponent<BrickController>().IsPlaced)
             {
-                OutlineCheck = false;
+                Destroy(gameObject);
             }
         }
     }
