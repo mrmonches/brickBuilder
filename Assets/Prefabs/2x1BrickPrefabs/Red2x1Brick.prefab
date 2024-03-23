@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3470301750276601349}
   - component: {fileID: 7627134908845656881}
   - component: {fileID: 7022513623570543244}
-  - component: {fileID: 4576400895401759179}
   - component: {fileID: 2505247834914615414}
   - component: {fileID: 6891679612313489609}
+  - component: {fileID: 4576400895401759179}
   m_Layer: 7
   m_Name: 2x1Model
   m_TagString: Brick
@@ -86,25 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4576400895401759179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4530893405978779024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46659565c8f53164ab80f26caed7074f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerController: {fileID: 0}
-  YOffset: 3
-  FollowSpeed: 20
-  isPlaced: 0
-  DefaultLayer: 0
-  BrickLayer: 7
-  _brickData: {fileID: 11400000, guid: fa9e2c4c3d1ea9345ab1535ab9b2102f, type: 2}
 --- !u!65 &2505247834914615414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -153,6 +134,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4576400895401759179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4530893405978779024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46659565c8f53164ab80f26caed7074f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 0}
+  YOffset: 3
+  FollowSpeed: 20
+  OffsetPos: {x: 0, y: 0.15, z: 0}
+  isPlaced: 0
+  DefaultLayer: 0
+  BrickLayer: 7
+  _brickData: {fileID: 11400000, guid: fa9e2c4c3d1ea9345ab1535ab9b2102f, type: 2}
 --- !u!1 &5779220025130572668
 GameObject:
   m_ObjectHideFlags: 0

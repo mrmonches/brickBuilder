@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6255180006664287752}
   - component: {fileID: 5822703500222388014}
   - component: {fileID: 5297655345733288226}
-  - component: {fileID: 4847349966665467327}
   - component: {fileID: 5316206948253590472}
   - component: {fileID: 4317432088396043034}
+  - component: {fileID: 4847349966665467327}
   m_Layer: 7
   m_Name: 2x1Model
   m_TagString: Brick
@@ -86,25 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4847349966665467327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5202729808395556027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46659565c8f53164ab80f26caed7074f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerController: {fileID: 0}
-  YOffset: 3
-  FollowSpeed: 20
-  isPlaced: 0
-  DefaultLayer: 0
-  BrickLayer: 7
-  _brickData: {fileID: 11400000, guid: 024a5ba47cda6774683d28856d75600e, type: 2}
 --- !u!65 &5316206948253590472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -153,6 +134,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4847349966665467327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202729808395556027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46659565c8f53164ab80f26caed7074f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 0}
+  YOffset: 3
+  FollowSpeed: 20
+  OffsetPos: {x: 0, y: 0.15, z: 0}
+  isPlaced: 0
+  DefaultLayer: 0
+  BrickLayer: 7
+  _brickData: {fileID: 11400000, guid: 024a5ba47cda6774683d28856d75600e, type: 2}
 --- !u!1 &5572776556304179955
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,5 +184,5 @@ Transform:
   m_Children:
   - {fileID: 6255180006664287752}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

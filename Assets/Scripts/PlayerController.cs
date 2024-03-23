@@ -19,11 +19,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask LevelMask, BrickMask, OutlineMask;
 
     // Brick Settings
-    private BrickController _brickController;
+    [SerializeField] private BrickController _brickController;
     private bool isHolding;
 
     // Outline Settings
-    private OutlineController _outlineController;
+    [SerializeField]private OutlineController _outlineController;
 
     // Camera Settings
     [SerializeField] private CameraController _cameraController;
@@ -76,8 +76,6 @@ public class PlayerController : MonoBehaviour
 
             _brickController.SetBrickLayer();
 
-            _outlineController = null;
-
             if (_brickController.IsPlacing)
             {
                 _brickController.IsPlaced = true;
@@ -85,6 +83,10 @@ public class PlayerController : MonoBehaviour
                 _brickController.SetDefaultLayer();
 
                 _brickController.Rigidbody.constraints = UnityEngine.RigidbodyConstraints.FreezeAll;
+
+                Destroy(_outlineController.gameObject);
+
+                _outlineController = null;
             }
 
             _brickController = null;
@@ -121,14 +123,16 @@ public class PlayerController : MonoBehaviour
     private void BrickHighlight()
     {
         RaycastHit hit;
-        // If mouse is hovering over a brick
-        if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, BrickMask))
+        // If mouse is hovering over a brick and the player is not holding a brick
+        if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, BrickMask) 
+            && !isHolding)
         {
             // If the brick has a BrickController component and the script doesn't have a reference for BrickController
             if (hit.rigidbody.gameObject.GetComponent<BrickController>() != null && _brickController == null)
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
             }
+            // If the current hit's reference doesn't equal the current reference and the player isn't holding a brick
             else if (hit.rigidbody.gameObject.GetComponent<BrickController>() != _brickController && !isHolding)
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
@@ -138,19 +142,23 @@ public class PlayerController : MonoBehaviour
         else if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, OutlineMask)
             && isHolding)
         {
+            // If the outline has a OutlineController component and there is no current reference for OutlineController
             if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != null && _outlineController == null)
             {
                 _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
             }
+            // If the current hit's reference doesn't equal the current reference and the brick was marked as placing
             else if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != _outlineController && 
                 _brickController.IsPlacing)
             {
                 _brickController.IsPlacing = false;
             }
+            // If the current hit's reference doesn't equal the current reference
             else if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != _outlineController)
             {
                 _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
             }
+            // If there is an OutlineController reference and BrickCheck is true
             else if (_outlineController != null && _outlineController.BrickCheck(_brickController.BrickData))
             {
                 _brickController.GoToSelectedSpot(hit.rigidbody.gameObject);
@@ -158,11 +166,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (_brickController != null || _outlineController != null) 
         {
+            // Used as a catch statement so that the brick isn't infinitely placing
             if (_brickController != null && _brickController.IsPlacing && _brickController.IsHeld)
             {
                 _brickController.IsPlacing = false;
             }
 
+            // Makes sure that there isn't a reference at times, important
             if (_brickController != null && !_brickController.IsHeld)
             {
                 _brickController = null;

@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 2567247889983720773}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7293654827087776705
 GameObject:
@@ -181,6 +181,7 @@ MonoBehaviour:
   _playerController: {fileID: 0}
   YOffset: 3
   FollowSpeed: 20
+  OffsetPos: {x: 0, y: 0.15, z: 0}
   isPlaced: 0
   DefaultLayer: 0
   BrickLayer: 7

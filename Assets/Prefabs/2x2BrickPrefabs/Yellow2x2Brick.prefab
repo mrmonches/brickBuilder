@@ -149,6 +149,7 @@ MonoBehaviour:
   _playerController: {fileID: 0}
   YOffset: 4
   FollowSpeed: 20
+  OffsetPos: {x: 0, y: 0.15, z: 0}
   isPlaced: 0
   DefaultLayer: 0
   BrickLayer: 7
@@ -183,5 +184,5 @@ Transform:
   m_Children:
   - {fileID: 4154108406361172956}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

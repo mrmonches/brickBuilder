@@ -47,13 +47,13 @@ public class OutlineController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Brick"))
-        {
-            if (other.gameObject.GetComponent<BrickController>().IsPlaced && 
-                BrickCheck(other.gameObject))
-            {
-                Destroy(gameObject);
-            }
-        }
+        //if (other.gameObject.CompareTag("Brick"))
+        //{
+        //    if (other.gameObject.GetComponent<BrickController>().IsPlaced && 
+        //        BrickCheck(other.gameObject) && other.gameObject.transform.position == gameObject.transform.position)
+        //    {
+        //        Destroy(gameObject);
+        //    }
+        //}
     }
 }
