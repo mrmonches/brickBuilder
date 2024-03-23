@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: YellowOneByOne
   m_EditorClassIdentifier: 
   _brickType: 0
-  _color: {r: 1, g: 0.8039216, b: 0.011764706, a: 0}
+  _brickColor: 3

@@ -4,8 +4,8 @@ using UnityEngine;
 public class BrickDataSO : ScriptableObject
 {
     [SerializeField] private BrickType _brickType;
-    [SerializeField] private Color _color;
+    [SerializeField] private BrickColor _brickColor;
 
     public BrickType BrickType { get => _brickType; private set => _brickType = value; }
-    public Color Color { get => _color; private set => _color = value; }
+    public BrickColor BrickColor { get => _brickColor; private set => _brickColor = value; }
 }

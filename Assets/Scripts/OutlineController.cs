@@ -6,11 +6,13 @@ public class OutlineController : MonoBehaviour
 
     private bool outlineCheck = true;
 
+    private BrickController _brickController;
+
     public bool OutlineCheck { get => outlineCheck; private set => outlineCheck = value; }
 
     public bool BrickCheck(BrickDataSO data)
     {
-        if (data.Color == OutlineData.Color && data.BrickType == OutlineData.BrickType)
+        if (data.BrickColor == OutlineData.BrickColor && data.BrickType == OutlineData.BrickType)
         {
             return true;
         }
@@ -20,11 +22,35 @@ public class OutlineController : MonoBehaviour
         } 
     }
 
+    public bool BrickCheck(GameObject brick)
+    {
+        if (brick.CompareTag("Brick") && brick.GetComponent<BrickController>() != null)
+        {
+            _brickController = brick.GetComponent<BrickController>();
+
+            BrickDataSO brickData = _brickController.BrickData;
+
+            if (brickData.BrickColor == OutlineData.BrickColor && brickData.BrickType == OutlineData.BrickType)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Brick"))
         {
-            if (other.gameObject.GetComponent<BrickController>().IsPlaced)
+            if (other.gameObject.GetComponent<BrickController>().IsPlaced && 
+                BrickCheck(other.gameObject))
             {
                 Destroy(gameObject);
             }

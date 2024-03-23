@@ -109,12 +109,20 @@ public class PlayerController : MonoBehaviour
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
             }
+            else if (hit.rigidbody.gameObject.GetComponent<BrickController>() != _brickController && !isHolding)
+            {
+                _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
+            }
         }
         // If mouse is hovering over an outline and is holding a brick
         else if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, OutlineMask)
             && isHolding)
         {
             if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != null && _outlineController == null)
+            {
+                _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
+            }
+            else if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != _outlineController)
             {
                 _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
             }

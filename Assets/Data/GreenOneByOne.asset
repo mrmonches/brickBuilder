@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GreenOneByOne
   m_EditorClassIdentifier: 
   _brickType: 0
-  _color: {r: 0, g: 0.6862745, b: 0.3019608, a: 0}
+  _brickColor: 2
