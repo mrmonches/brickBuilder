@@ -19,14 +19,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask LevelMask, BrickMask, OutlineMask;
 
     // Brick Settings
-    [SerializeField] private BrickController _brickController;
+    private BrickController _brickController;
     private bool isHolding;
 
     // Outline Settings
-    [SerializeField]private OutlineController _outlineController;
+    private OutlineController _outlineController;
 
     // Camera Settings
-    [SerializeField] private CameraController _cameraController;
+    [SerializeField] private CameraController _mainCameraController, _instructionCameraController;
 
 
     private void Awake()
@@ -95,11 +95,13 @@ public class PlayerController : MonoBehaviour
 
     private void CameraControl_started(InputAction.CallbackContext obj)
     {
-        _cameraController.CameraInput = cameraControl.ReadValue<float>();
+        _mainCameraController.CameraInput = cameraControl.ReadValue<float>();
+        _instructionCameraController.CameraInput = cameraControl.ReadValue<float>();
     }
     private void CameraControl_canceled(InputAction.CallbackContext obj)
     {
-        _cameraController.CameraInput = 0f;
+        _mainCameraController.CameraInput = 0f;
+        _instructionCameraController.CameraInput = 0f;
     }
 
     private void OnMouse(InputValue mousePos)

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InstructionManager : MonoBehaviour
@@ -6,23 +7,38 @@ public class InstructionManager : MonoBehaviour
     [SerializeField] private int PageCount;
     [SerializeField] private int CurrentPage;
 
-    [SerializeField] private List<InstructionSO> InstructionPages = new List<InstructionSO>();
+    [SerializeField] private List<GameObject> InstructionPages = new List<GameObject>();
+    [SerializeField] private List<GameObject> InstructionObjects = new List<GameObject>();
 
     public void IncrementPage()
     {
-        if (CurrentPage < PageCount)
+        if (CurrentPage < PageCount && CanProgress())
         {
             DeactivatePage(CurrentPage);
             CurrentPage++;
             ActivatePage(CurrentPage);
+            ActivateExample(CurrentPage);
+        }
+    }
+
+    private bool CanProgress()
+    {
+        if (InstructionPages[CurrentPage].GetComponentInChildren<OutlineController>() == null)
+        {
+            return true;
+        } 
+        else
+        {
+            return false;
         }
     }
 
     public void DecrementPage()
     {
-        if (CurrentPage > 2)
+        if (CurrentPage > 0)
         {
             DeactivatePage(CurrentPage);
+            DeactivateExample(CurrentPage);
             CurrentPage--;
             ActivatePage(CurrentPage);
         }
@@ -30,16 +46,21 @@ public class InstructionManager : MonoBehaviour
 
     private void DeactivatePage(int page)
     {
-        int instructionIndex = InstructionPages[page].PageObjects.Count;
+        InstructionPages[page].SetActive(false);
+    }
 
-        for (int i = 0; i < instructionIndex; i++)
-        {
-
-        }
+    private void DeactivateExample(int page)
+    {
+        InstructionObjects[page].SetActive(false);
     }
 
     private void ActivatePage(int page)
     {
+        InstructionPages[page].SetActive(true);
+    }
 
+    private void ActivateExample(int page)
+    {
+        InstructionObjects[page].SetActive(true);
     }
 }
