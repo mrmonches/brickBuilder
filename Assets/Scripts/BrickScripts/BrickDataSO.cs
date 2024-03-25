@@ -1,3 +1,10 @@
+/*****************************************************************************
+// File Name : BrickDataSO.cs
+// Author : Nolan J. Stein
+// Creation Date : March 20, 2024
+//
+// Brief Description : This is a script that allows for quick data on bricks.
+*****************************************************************************/
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BrickData", menuName = "Brick Data")]

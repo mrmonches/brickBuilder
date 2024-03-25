@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : PlayerController.cs
+// Author : Nolan J. Stein
+// Creation Date : March 20, 2024
+//
+// Brief Description : This is a script that handles the player controls and 
+how the player interacts with the game world.
+*****************************************************************************/
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private InputAction cameraControl;
 
     private Vector3 mousePosition;
+
+    [SerializeField] private MenuScript _menuScript;
 
     // Camera-Grid Settings
     [SerializeField] private Camera SceneCamera;
@@ -28,7 +38,10 @@ public class PlayerController : MonoBehaviour
     // Camera Settings
     [SerializeField] private CameraController _mainCameraController, _instructionCameraController;
 
-
+    /// <summary>
+    /// A function that runs when the object is awake.
+    /// Assigns references to variables and allows player to control the game.
+    /// </summary>
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -46,9 +59,13 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// A function that handles when a player selects an object.
+    /// </summary>
+    /// <param name="obj"></param> Parameter that comes from input.
     private void Select_started(InputAction.CallbackContext obj)
     {
+        // Makes sure that there is a brick reference and the brick isn't placed.
         if (_brickController != null && !_brickController.IsPlaced)
         {
             _brickController.IsHeld = true;
@@ -62,8 +79,14 @@ public class PlayerController : MonoBehaviour
             _brickController.SetDefaultLayer();
         }
     }
+
+    /// <summary>
+    /// A function that handles when a player releases an object.
+    /// </summary>
+    /// <param name="obj"></param> Parameter that comes from input.
     private void Select_canceled(InputAction.CallbackContext obj)
     {
+        // Makes sure there is a brick reference and that the brick is held and not placed.
         if (_brickController != null && _brickController.IsHeld && !_brickController.IsPlaced)
         {
             _brickController.IsHeld = false;
@@ -76,6 +99,7 @@ public class PlayerController : MonoBehaviour
 
             _brickController.SetBrickLayer();
 
+            // Makes sure brick is placed.
             if (_brickController.IsPlacing)
             {
                 _brickController.IsPlaced = true;
@@ -93,22 +117,55 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A function that handles the camera rotation based on player input.
+    /// </summary>
+    /// <param name="obj"></param> Parameter that comes from input.
     private void CameraControl_started(InputAction.CallbackContext obj)
     {
         _mainCameraController.CameraInput = cameraControl.ReadValue<float>();
         _instructionCameraController.CameraInput = cameraControl.ReadValue<float>();
     }
+
+    /// <summary>
+    /// A function that resets the camera rotation based on player input.
+    /// </summary>
+    /// <param name="obj"></param> Parameter that comes from input.
     private void CameraControl_canceled(InputAction.CallbackContext obj)
     {
         _mainCameraController.CameraInput = 0f;
         _instructionCameraController.CameraInput = 0f;
     }
 
+    /// <summary>
+    /// A function that assigns mouse position on mouse movement.
+    /// </summary>
+    /// <param name="mousePos"></param> Parameter that comes from input.
     private void OnMouse(InputValue mousePos)
     {
         mousePosition = mousePos.Get<Vector2>();
     }
 
+    /// <summary>
+    /// A function that reloads the current scene based on player input.
+    /// </summary>
+    private void OnReload()
+    {
+        _menuScript.ReloadScene();
+    }
+
+    /// <summary>
+    /// A function that quits the game based on player input.
+    /// </summary>
+    private void OnQuit()
+    {
+        _menuScript.QuitGame();
+    }
+
+    /// <summary>
+    /// A function that returns the map position based on mouse position.
+    /// </summary>
+    /// <returns></returns> Returns the desired map position.
     public Vector3 GetSelectedMapPosition()
     {
         mousePosition.z = SceneCamera.nearClipPlane;
@@ -122,6 +179,11 @@ public class PlayerController : MonoBehaviour
         return lastPosition;
     }
 
+    /// <summary>
+    /// A function that handles the player-brick-outline interaction.
+    /// Very complicated and bloated, potential for optimization.
+    /// Currently arranged to catch any outlying conditions for best player experience.
+    /// </summary>
     private void BrickHighlight()
     {
         RaycastHit hit;
@@ -184,11 +246,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A function that is called every frame.
+    /// </summary>
     private void Update()
     {
         BrickHighlight();
     }
 
+    /// <summary>
+    /// A function that is called on end of play.
+    /// </summary>
     private void OnDestroy()
     {
         select.started -= Select_started;

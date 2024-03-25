@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : BrickController.cs
+// Author : Nolan J. Stein
+// Creation Date : March 20, 2024
+//
+// Brief Description : This is a script that manages the attributes and 
+controls how the bricks behave in game.
+*****************************************************************************/
 using UnityEngine;
 
 public class BrickController : MonoBehaviour
@@ -28,6 +36,9 @@ public class BrickController : MonoBehaviour
     public bool IsPlacing { get => isPlacing; set => isPlacing = value; }
     public BrickDataSO BrickData { get => _brickData; set => _brickData = value; }
 
+    /// <summary>
+    /// A function that assigns necessary references.
+    /// </summary>
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -36,33 +47,48 @@ public class BrickController : MonoBehaviour
     }
 
     /// <summary>
-    /// Script that allows the brick to smoothly follow the mouse
+    /// A function that allows the brick to follow the mouse.
     /// </summary>
     private void FollowPlayerMouse()
     {
         transform.position = Vector3.MoveTowards(transform.position, AdjustedMousePos(), FollowSpeed * Time.deltaTime);
     }
 
+    /// <summary>
+    /// A function that sets the brick's layer to default.
+    /// </summary>
     public void SetDefaultLayer()
     {
         gameObject.layer = DefaultLayer;
     }
 
+    /// <summary>
+    /// A function that sets the brick's layer to brick.
+    /// </summary>
     public void SetBrickLayer()
     {
         gameObject.layer = BrickLayer;
     }
 
+    /// <summary>
+    /// A function that returns an adjusted mouse position.
+    /// </summary>
+    /// <returns></returns> Returns the adjusted mouse position.
     private Vector3 AdjustedMousePos()
     {
         return new Vector3(_playerController.GetSelectedMapPosition().x, _playerController.GetSelectedMapPosition().y
             + YOffset, _playerController.GetSelectedMapPosition().z);
     }
 
+    /// <summary>
+    /// A function that brings the brick to the selected outline.
+    /// </summary>
+    /// <param name="selectedSpot"></param> Parameter based on selected outline.
     public void GoToSelectedSpot(GameObject selectedSpot)
     {
         placedPos = selectedSpot.transform.position;
 
+        // Fix to a bug where bricks other than OneByOne's would be placed into the building plane.
         if (_brickData.BrickType != BrickType.OneByOne)
         {
             transform.position = selectedSpot.transform.position + OffsetPos;
@@ -72,21 +98,28 @@ public class BrickController : MonoBehaviour
             transform.position = selectedSpot.transform.position;
         }
 
+        // Allows bricks to be rotated to the correct spot based on the outline.
         transform.rotation = selectedSpot.transform.rotation;
 
+        // Makes brick unable to be picked up.
         if (!IsPlacing)
         {
             IsPlacing = true;
         }
     }
 
+    /// <summary>
+    /// A function that updates every frame, after Update runs.
+    /// </summary>
     private void LateUpdate()
     {
+        // Makes sure the brick is only following at certain points.
         if (IsHeld && !IsPlacing)
         {
             FollowPlayerMouse();
         }
 
+        // Locks brick in place
         if (IsPlaced && !lockBrick)
         {
             lockBrick = true;

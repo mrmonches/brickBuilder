@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : BrickController.cs
+// Author : Nolan J. Stein
+// Creation Date : March 22, 2024
+//
+// Brief Description : This is a script that manages all of the attributes for
+the outlines in the game. Includes comparing bricks to the outline's data.
+*****************************************************************************/
 using UnityEngine;
 
 public class OutlineController : MonoBehaviour
@@ -10,6 +18,11 @@ public class OutlineController : MonoBehaviour
 
     public bool OutlineCheck { get => outlineCheck; private set => outlineCheck = value; }
 
+    /// <summary>
+    /// A function that will return if the brick has the same attributes as the outline.
+    /// </summary>
+    /// <param name="data"></param> The input for brick data.
+    /// <returns></returns> Returns true if same attributes, false if otherwise.
     public bool BrickCheck(BrickDataSO data)
     {
         if (data.BrickColor == OutlineData.BrickColor && data.BrickType == OutlineData.BrickType)
@@ -22,6 +35,11 @@ public class OutlineController : MonoBehaviour
         } 
     }
 
+    /// <summary>
+    /// A function that will return if the brick has the same attributes as the outline.
+    /// </summary>
+    /// <param name="brick"></param> The input for brick object.
+    /// <returns></returns> Returns true if same attributes, false if otherwise.
     public bool BrickCheck(GameObject brick)
     {
         if (brick.CompareTag("Brick") && brick.GetComponent<BrickController>() != null)
@@ -43,17 +61,5 @@ public class OutlineController : MonoBehaviour
         {
             return false;
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        //if (other.gameObject.CompareTag("Brick"))
-        //{
-        //    if (other.gameObject.GetComponent<BrickController>().IsPlaced && 
-        //        BrickCheck(other.gameObject) && other.gameObject.transform.position == gameObject.transform.position)
-        //    {
-        //        Destroy(gameObject);
-        //    }
-        //}
     }
 }
