@@ -9,20 +9,23 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private float cameraInput;
+    [SerializeField] private float CameraAngle;
     [SerializeField] private GameObject BuildingPlane;
-
-    public float CameraInput { get => cameraInput; set => cameraInput = value; }
 
     /// <summary>
     /// A function that updates on a fixed timer.
     /// Allows the player to rotate around the Building Plane.
     /// </summary>
-    private void FixedUpdate()
+    //private void FixedUpdate()
+    //{
+    //    if (cameraInput != 0)
+    //    {
+    //        transform.RotateAround(BuildingPlane.transform.position, Vector3.up, cameraInput);
+    //    }
+    //}
+
+    public void CameraShift()
     {
-        if (cameraInput != 0)
-        {
-            transform.RotateAround(BuildingPlane.transform.position, Vector3.up, cameraInput);
-        }
+        transform.RotateAround(BuildingPlane.transform.position, Vector3.up, CameraAngle);
     }
 }

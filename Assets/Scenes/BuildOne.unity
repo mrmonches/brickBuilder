@@ -2107,6 +2107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b88a54d54a3ecb479cdd81150a64246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraAngle: 90
   BuildingPlane: {fileID: 2002242865}
 --- !u!20 &489711897
 Camera:
@@ -3686,6 +3687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b88a54d54a3ecb479cdd81150a64246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraAngle: 90
   BuildingPlane: {fileID: 480604335}
 --- !u!20 &1117031560
 Camera:

@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _playerInput;
 
     private InputAction select;
-    private InputAction cameraControl;
+    //private InputAction cameraControl;
 
     private Vector3 mousePosition;
 
@@ -49,13 +49,13 @@ public class PlayerController : MonoBehaviour
         _playerInput.currentActionMap.Enable();
 
         select = _playerInput.currentActionMap.FindAction("Select");
-        cameraControl = _playerInput.currentActionMap.FindAction("CameraControl");
+        //cameraControl = _playerInput.currentActionMap.FindAction("CameraControl");
 
         select.started += Select_started;
         select.canceled += Select_canceled;
 
-        cameraControl.started += CameraControl_started;
-        cameraControl.canceled += CameraControl_canceled;
+        //cameraControl.started += CameraControl_started;
+        //cameraControl.canceled += CameraControl_canceled;
     }
 
 
@@ -117,24 +117,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// A function that handles the camera rotation based on player input.
-    /// </summary>
-    /// <param name="obj"></param> Parameter that comes from input.
-    private void CameraControl_started(InputAction.CallbackContext obj)
-    {
-        _mainCameraController.CameraInput = cameraControl.ReadValue<float>();
-        _instructionCameraController.CameraInput = cameraControl.ReadValue<float>();
-    }
+    ///// <summary>
+    ///// A function that handles the camera rotation based on player input.
+    ///// </summary>
+    ///// <param name="obj"></param> Parameter that comes from input.
+    //private void CameraControl_started(InputAction.CallbackContext obj)
+    //{
+    //    _mainCameraController.CameraInput = cameraControl.ReadValue<float>();
+    //    _instructionCameraController.CameraInput = cameraControl.ReadValue<float>();
+    //}
 
-    /// <summary>
-    /// A function that resets the camera rotation based on player input.
-    /// </summary>
-    /// <param name="obj"></param> Parameter that comes from input.
-    private void CameraControl_canceled(InputAction.CallbackContext obj)
+    ///// <summary>
+    ///// A function that resets the camera rotation based on player input.
+    ///// </summary>
+    ///// <param name="obj"></param> Parameter that comes from input.
+    //private void CameraControl_canceled(InputAction.CallbackContext obj)
+    //{
+    //    _mainCameraController.CameraInput = 0f;
+    //    _instructionCameraController.CameraInput = 0f;
+    //}
+
+    private void OnCameraControl()
     {
-        _mainCameraController.CameraInput = 0f;
-        _instructionCameraController.CameraInput = 0f;
+        _mainCameraController.CameraShift();
+        _instructionCameraController.CameraShift();
     }
 
     /// <summary>
@@ -262,7 +268,7 @@ public class PlayerController : MonoBehaviour
         select.started -= Select_started;
         select.canceled -= Select_canceled;
 
-        cameraControl.started -= CameraControl_started;
-        cameraControl.canceled -= CameraControl_canceled;
+        //cameraControl.started -= CameraControl_started;
+        //cameraControl.canceled -= CameraControl_canceled;
     }
 }

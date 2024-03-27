@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "CameraControl",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "de8c049f-7de2-49ff-b65d-597f490554ff",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -75,39 +75,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "757cee72-cbcf-466e-93d4-0023cefef2b8",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraControl",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "9fef62f0-0936-4847-b7ed-794ca773fffc",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraControl",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "9886f987-0e10-484f-810b-c027d9a52a40",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraControl",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "f8b7c7d9-47d0-475d-9e88-644120031429",
                     "path": "<Keyboard>/escape",
@@ -126,6 +93,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e1d3522-e4b3-46ed-8eee-7f210182829f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraControl",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
