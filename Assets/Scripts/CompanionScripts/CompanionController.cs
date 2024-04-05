@@ -13,7 +13,7 @@ public class CompanionController : MonoBehaviour
 
     private void Update()
     {
-        if (_currentState == CompanionStates.Moving && !IsMoving)
+        if (_currentState == CompanionStates.Moving)
         {
             Agent.destination = Brick.transform.position;
         }

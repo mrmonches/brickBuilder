@@ -7,10 +7,12 @@
 controls how the bricks behave in game.
 *****************************************************************************/
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BrickController : MonoBehaviour
 {
     [SerializeField] private PlayerController _playerController;
+    private NavMeshObstacle _navObstacle;
 
     [SerializeField] private float YOffset;
     [SerializeField] private float FollowSpeed;
