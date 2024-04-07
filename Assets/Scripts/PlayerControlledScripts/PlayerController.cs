@@ -139,11 +139,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCameraControl()
     {
-        if (!_mainCameraController.IsMoving && !_instructionCameraController.IsMoving)
-        {
+        //if (!_mainCameraController.IsMoving && !_instructionCameraController.IsMoving)
+        //{
             _mainCameraController.CameraShift();
             _instructionCameraController.CameraShift();
-        }
+        //}
     }
 
     /// <summary>

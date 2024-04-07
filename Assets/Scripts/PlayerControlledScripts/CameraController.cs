@@ -28,21 +28,21 @@ public class CameraController : MonoBehaviour
 
     public void CameraShift()
     {
-        //transform.RotateAround(BuildingPlane.transform.position, Vector3.up, CameraAngle);
+        transform.RotateAround(BuildingPlane.transform.position, Vector3.up, CameraAngle);
 
-        _isMoving = true;
+        //_isMoving = true;
 
-        if (currentPos >= 3)
-        {
-            currentPos = 0;
-        }
-        else
-        {
-            currentPos++;
-        }
+        //if (currentPos >= 3)
+        //{
+        //    currentPos = 0;
+        //}
+        //else
+        //{
+        //    currentPos++;
+        //}
 
-        StartCoroutine(LerpFromTo(transform.position, CameraPositions[currentPos].position, RotationDuration,
-            transform.rotation, CameraPositions[currentPos].rotation));
+        //StartCoroutine(LerpFromTo(transform.position, CameraPositions[currentPos].position, RotationDuration,
+        //    transform.rotation, CameraPositions[currentPos].rotation));
     }
 
     private void Update()
@@ -54,6 +54,9 @@ public class CameraController : MonoBehaviour
         //else if (_isMoving && transform.position == CameraPositions[currentPos].transform.position)
         //{
         //    _isMoving = false;
+
+        //    transform.position = CameraPositions[currentPos].transform.position;
+        //    transform.rotation = CameraPositions[currentPos].transform.rotation;
         //}
     }
 

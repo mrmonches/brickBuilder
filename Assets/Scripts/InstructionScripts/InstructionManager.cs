@@ -16,6 +16,7 @@ public class InstructionManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> InstructionPages = new List<GameObject>();
     [SerializeField] private List<GameObject> InstructionObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> BrickObjects = new List<GameObject>();
 
     /// <summary>
     /// A function that will increment the page count.
@@ -29,6 +30,7 @@ public class InstructionManager : MonoBehaviour
             CurrentPage++;
             ActivatePage(CurrentPage);
             ActivateExample(CurrentPage);
+            ActivateBricks(CurrentPage);
         }
     }
 
@@ -41,7 +43,7 @@ public class InstructionManager : MonoBehaviour
         if (InstructionPages[CurrentPage].GetComponentInChildren<OutlineController>() == null)
         {
             return true;
-        } 
+        }
         else
         {
             return false;
@@ -82,6 +84,20 @@ public class InstructionManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Responsible for deactivating bricks
+    /// Currently not in use
+    /// </summary>
+    //private void DeactivateBricks(int page)
+    //{
+    //    BrickController brickCheck = BrickObjects[page].GetComponentInChildren<BrickController>();
+
+    //    if (!brickCheck.IsPlaced)
+    //    {
+    //        BrickObjects[page].SetActive(false);
+    //    }
+    //}
+
+    /// <summary>
     /// Responsible for activating a page.
     /// </summary>
     /// <param name="page"></param> Input that is the current page.
@@ -97,5 +113,14 @@ public class InstructionManager : MonoBehaviour
     private void ActivateExample(int page)
     {
         InstructionObjects[page].SetActive(true);
+    }
+
+    /// <summary>
+    /// Responsible for activating current bricks
+    /// </summary>
+    /// <param name="page"></param>
+    private void ActivateBricks(int page)
+    {
+        BrickObjects[page].SetActive(true);
     }
 }

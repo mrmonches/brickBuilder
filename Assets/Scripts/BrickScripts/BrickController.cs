@@ -12,7 +12,6 @@ using UnityEngine.AI;
 public class BrickController : MonoBehaviour
 {
     [SerializeField] private PlayerController _playerController;
-    private NavMeshObstacle _navObstacle;
 
     [SerializeField] private float YOffset;
     [SerializeField] private float FollowSpeed;
@@ -32,6 +31,8 @@ public class BrickController : MonoBehaviour
 
     private bool lockBrick;
 
+    private CompanionController _companionController;
+
     public bool IsPlaced { get => isPlaced; set => isPlaced = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }
     public Rigidbody Rigidbody { get => _rigidbody; set => _rigidbody = value; }
@@ -46,6 +47,14 @@ public class BrickController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
 
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
+
+        if (gameObject.layer != 9)
+        {
+            _companionController = GameObject.Find("Tiny").GetComponent<CompanionController>();
+
+            _companionController.CurrentBricks.Add(gameObject);
+        }
     }
 
     /// <summary>
@@ -125,6 +134,8 @@ public class BrickController : MonoBehaviour
         if (IsPlaced && !lockBrick)
         {
             lockBrick = true;
+
+            _companionController.RemoveBrickFromRange(gameObject);
 
             if (_brickData.BrickType != BrickType.OneByOne)
             {

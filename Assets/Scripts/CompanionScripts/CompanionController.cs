@@ -7,6 +7,8 @@ public class CompanionController : MonoBehaviour
     [SerializeField] private NavMeshAgent Agent;
     [SerializeField] private CompanionStates _currentState;
 
+    private GameObject currentTarget;
+
     [SerializeField] private List<GameObject> currentBricks = new List<GameObject>();
 
     public CompanionStates CurrentState { get => _currentState; set => _currentState = value; }
@@ -16,7 +18,7 @@ public class CompanionController : MonoBehaviour
     /// A function that calculates the brick closest to companion character
     /// </summary>
     /// <returns></returns>
-    private GameObject ClosestBrick()
+    public void ClosestBrick()
     {
         GameObject brick = currentBricks[0];
 
@@ -29,28 +31,32 @@ public class CompanionController : MonoBehaviour
             }
         }
 
-        return brick;
+        currentTarget = brick;
+    }
+
+    public void RemoveBrickFromRange(GameObject brick)
+    {
+        currentBricks.Remove(brick);
     }
 
     private void Update()
     {
-        if (_currentState == CompanionStates.Moving)
+        if (_currentState == CompanionStates.Moving && transform.position != currentTarget.transform.position)
         {
-            Agent.destination = ClosestBrick().transform.position;
+            Agent.SetDestination(currentTarget.transform.position);
         }
-        else if (transform.position == Agent.destination)
+        else if (_currentState == CompanionStates.Moving && transform.position == currentTarget.transform.position)
         {
-            _currentState = CompanionStates.HoldingIdle;
+            _currentState = CompanionStates.PickingUp;
         }
     }
-
-
 }
 
 public enum CompanionStates
 {
     Idle, 
     Moving,
+    PickingUp,
     HoldingIdle, 
     HoldingMoving
 }

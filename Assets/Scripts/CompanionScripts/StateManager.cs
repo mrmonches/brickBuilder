@@ -4,7 +4,7 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     private CompanionController companionController;
-    private bool stateActive;
+    [SerializeField] private bool StateActive;
 
     [SerializeField] private float IdleTimer;
 
@@ -21,15 +21,17 @@ public class StateManager : MonoBehaviour
     /// </summary>
     private void StateControl()
     {
-        if (companionController.CurrentState == CompanionStates.Idle)
+        switch (companionController.CurrentState)
         {
-            stateActive = true;
-            StartCoroutine("IdleCountdown");
-        }
-        else if (companionController.CurrentState == CompanionStates.HoldingIdle)
-        {
-            stateActive = true;
-            StartCoroutine("HoldingIdleCountdown");
+            case CompanionStates.Idle:
+                StateActive = true;
+                StartCoroutine("IdleCountdown");
+                break;
+            case CompanionStates.HoldingIdle:
+                StateActive = true;
+                StartCoroutine("HoldingIdleCountdown");
+                break;
+            default: break;
         }
     }
 
@@ -39,11 +41,12 @@ public class StateManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator IdleCountdown()
     {
-        if (stateActive)
+        if (StateActive)
         {
             yield return new WaitForSeconds(IdleTimer);
+            companionController.ClosestBrick();
             companionController.CurrentState = CompanionStates.Moving;
-            stateActive = false;
+            StateActive = false;
         }
     }
 
@@ -53,17 +56,17 @@ public class StateManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator HoldingIdleCountdown()
     {
-        if (stateActive)
+        if (StateActive)
         {
             yield return new WaitForSeconds(IdleTimer);
             companionController.CurrentState = CompanionStates.HoldingMoving;
-            stateActive = false;
+            StateActive = false;
         }
     }
 
     private void Update()
     {
-        if (!stateActive)
+        if (!StateActive)
         {
             StateControl();
         }
