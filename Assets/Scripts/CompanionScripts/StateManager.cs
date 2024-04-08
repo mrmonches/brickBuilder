@@ -7,6 +7,7 @@ public class StateManager : MonoBehaviour
     [SerializeField] private bool StateActive;
 
     [SerializeField] private float IdleTimer;
+    [SerializeField] private float HoldingIdleTimer;
 
     /// <summary>
     /// A function that gets necessary references to components
@@ -27,7 +28,7 @@ public class StateManager : MonoBehaviour
                 StateActive = true;
                 StartCoroutine("IdleCountdown");
                 break;
-            case CompanionStates.HoldingIdle:
+            case CompanionStates.PickingUp:
                 StateActive = true;
                 StartCoroutine("HoldingIdleCountdown");
                 break;
@@ -58,7 +59,7 @@ public class StateManager : MonoBehaviour
     {
         if (StateActive)
         {
-            yield return new WaitForSeconds(IdleTimer);
+            yield return new WaitForSeconds(HoldingIdleTimer);
             companionController.CurrentState = CompanionStates.HoldingMoving;
             StateActive = false;
         }
