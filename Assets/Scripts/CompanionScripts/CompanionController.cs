@@ -7,7 +7,14 @@ public class CompanionController : MonoBehaviour
     [SerializeField] private NavMeshAgent Agent;
     [SerializeField] private CompanionStates _currentState;
 
+    [SerializeField] private float DistanceFromBrick;
+
     private GameObject currentTarget;
+    private BrickController currentController;
+
+    private bool holdingBrick;
+
+    [SerializeField] private Transform HoldingPos;
 
     [SerializeField] private List<GameObject> currentBricks = new List<GameObject>();
 
@@ -32,8 +39,30 @@ public class CompanionController : MonoBehaviour
         }
 
         currentTarget = brick;
+        currentController = currentTarget.GetComponent<BrickController>();
     }
 
+    private void PickupTargetBrick()
+    {
+        holdingBrick = true;
+    }
+
+    private bool IsCloseToBrick()
+    {
+        if (Vector3.Distance(transform.position, currentTarget.transform.position) > DistanceFromBrick)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /// <summary>
+    /// A function that removes a brick from the companion's range
+    /// </summary>
+    /// <param name="brick"></param>
     public void RemoveBrickFromRange(GameObject brick)
     {
         currentBricks.Remove(brick);
@@ -41,13 +70,26 @@ public class CompanionController : MonoBehaviour
 
     private void Update()
     {
-        if (_currentState == CompanionStates.Moving && transform.position != currentTarget.transform.position)
+        if (_currentState == CompanionStates.Moving && !IsCloseToBrick())
         {
             Agent.SetDestination(currentTarget.transform.position);
         }
-        else if (_currentState == CompanionStates.Moving && transform.position == currentTarget.transform.position)
+        else if (_currentState == CompanionStates.Moving && IsCloseToBrick() && Agent.velocity == Vector3.zero)
         {
             _currentState = CompanionStates.PickingUp;
+
+            PickupTargetBrick();
+        }
+
+        if (holdingBrick && !currentController.IsHeld)
+        {
+            currentTarget.transform.position = HoldingPos.position;
+        }
+        else if (holdingBrick && currentController.IsHeld)
+        {
+            currentTarget = null;
+
+            holdingBrick = false;
         }
     }
 }
