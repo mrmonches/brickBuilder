@@ -60,7 +60,7 @@ public class StateManager : MonoBehaviour
         if (StateActive)
         {
             yield return new WaitForSeconds(HoldingIdleTimer);
-            companionController.CurrentState = CompanionStates.HoldingMoving;
+            companionController.CurrentState = CompanionStates.HoldingIdle;
             StateActive = false;
         }
     }

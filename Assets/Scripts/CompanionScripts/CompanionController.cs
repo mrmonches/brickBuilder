@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +10,7 @@ public class CompanionController : MonoBehaviour
 
     [SerializeField] private float DistanceFromBrick;
 
-    [SerializeField] private GameObject CameraTarget;
+    [SerializeField] private Transform CameraTarget;
 
     private GameObject currentTarget;
     private BrickController currentController;
@@ -17,6 +18,11 @@ public class CompanionController : MonoBehaviour
     [SerializeField] private Transform HoldingPos;
 
     [SerializeField] private List<GameObject> currentBricks = new List<GameObject>();
+
+    [Header("Companion-Look Variables")]
+    [SerializeField] private float LookSpeed;
+    private Quaternion lookRotation;
+    private Vector3 lookDirection;
 
     public CompanionStates CurrentState { get => _currentState; set => _currentState = value; }
     public List<GameObject> CurrentBricks { get => currentBricks; set => currentBricks = value; }
@@ -27,24 +33,35 @@ public class CompanionController : MonoBehaviour
     /// <returns></returns>
     public void ClosestBrick()
     {
-        GameObject brick = currentBricks[0]; 
-
-        if (brick.GetComponent<BrickController>().IsHeld)
+        // If there are more than 0 elements in the currentBricks list
+        if (currentBricks.Count > 0)
         {
-            brick = currentBricks[1];
-        }
+            GameObject brick = currentBricks[0];
 
-        for (int i = 1; i < currentBricks.Count; i++)
-        {
-            if (Vector3.Distance(transform.position, currentBricks[i].transform.position) <= 
-                Vector3.Distance(transform.position, brick.transform.position) && !CurrentBricks[i].GetComponent<BrickController>().IsHeld)
+            // If the initial brick is held and there are equal or more than two bricks in the list
+            if (brick.GetComponent<BrickController>().IsHeld && currentBricks.Count >= 2)
             {
-                brick = currentBricks[i];
+                brick = currentBricks[1];
             }
-        }
 
-        currentTarget = brick;
-        currentController = currentTarget.GetComponent<BrickController>();
+            // If there is more than one brick in the list and brick does not equal the second item in the list
+            if (currentBricks.Count > 1 && brick != currentBricks[1])
+            {
+                // For-loop that calculates the closest brick to 
+                for (int i = 1; i < currentBricks.Count; i++)
+                {
+                    if (Vector3.Distance(transform.position, currentBricks[i].transform.position) <=
+                        Vector3.Distance(transform.position, brick.transform.position) && 
+                        !CurrentBricks[i].GetComponent<BrickController>().IsHeld)
+                    {
+                        brick = currentBricks[i];
+                    }
+                }
+            }
+
+            currentTarget = brick;
+            currentController = currentTarget.GetComponent<BrickController>();
+        }
     }
 
     /// <summary>
@@ -77,18 +94,35 @@ public class CompanionController : MonoBehaviour
         currentBricks.Remove(brick);
     }
 
+    /// <summary>
+    /// A function to clear companion conditions
+    /// </summary>
     private void ClearCompanionConditions()
     {
         currentTarget = null;
+
+        currentController = null;
 
         _currentState = CompanionStates.Idle;
 
         Agent.ResetPath();
     }
 
+    /// <summary>
+    /// A function that makes the companion hold the brick above their head
+    /// </summary>
     private void HoldBrick()
     {
         currentTarget.transform.position = HoldingPos.position;
+    }
+
+    private void LookTowardsPlayer()
+    {
+        lookDirection = (CameraTarget.position - transform.position).normalized;
+
+        lookRotation = Quaternion.LookRotation(lookDirection);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, LookSpeed * Time.deltaTime);
     }
 
     /// <summary>
@@ -97,6 +131,11 @@ public class CompanionController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (currentController == null)
+        {
+            CurrentState = CompanionStates.Idle;
+        }
+
         switch (_currentState)
         {
             case CompanionStates.Moving:
@@ -124,15 +163,8 @@ public class CompanionController : MonoBehaviour
                     ClearCompanionConditions();
                 }
                 break;
-            case CompanionStates.HoldingMoving:
-                Agent.SetDestination(CameraTarget.transform.position);
-
-                //if (transform.position ==  CameraTarget.transform.position)
-                //{
-                //    Agent.ResetPath();
-
-                //    CurrentState = CompanionStates.HoldingIdle;
-                //}
+            case CompanionStates.HoldingIdle:
+                LookTowardsPlayer();
 
                 if (!currentController.IsHeld)
                 {
@@ -143,12 +175,6 @@ public class CompanionController : MonoBehaviour
                     ClearCompanionConditions();
                 }
                 break;
-            //case CompanionStates.HoldingIdle:
-            //    if (transform.position != CameraTarget.transform.position)
-            //    {
-            //        CurrentState = CompanionStates.HoldingMoving;
-            //    }
-            //    break;
             default: break;
         }
     }
@@ -160,5 +186,4 @@ public enum CompanionStates
     Moving,
     PickingUp,
     HoldingIdle, 
-    HoldingMoving
 }

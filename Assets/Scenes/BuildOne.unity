@@ -207,8 +207,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: 491d566560f1c554181753a35e473b6c, type: 2}
 --- !u!54 &15952349
 Rigidbody:
@@ -360,8 +365,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: 40645169f2b63184cac8db80be501fde, type: 2}
 --- !u!54 &34885422
 Rigidbody:
@@ -1091,8 +1101,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: d7e2a1964e7d88d47b2e9ab5cfdc6e37, type: 2}
 --- !u!54 &217455882
 Rigidbody:
@@ -1334,9 +1349,10 @@ MonoBehaviour:
   Agent: {fileID: 232541847}
   _currentState: 0
   DistanceFromBrick: 5
-  CameraTarget: {fileID: 113543255}
+  CameraTarget: {fileID: 113543256}
   HoldingPos: {fileID: 615615974}
   currentBricks: []
+  LookSpeed: 0.5
 --- !u!114 &232541846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,8 +2162,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: 4c3032eb917176c458ed2003780dbca7, type: 2}
 --- !u!54 &465392576
 Rigidbody:
@@ -3169,8 +3190,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: fa9e2c4c3d1ea9345ab1535ab9b2102f, type: 2}
 --- !u!54 &785687401
 Rigidbody:
@@ -3322,8 +3348,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: c62707e40b41f63448da0124a3cdbcc6, type: 2}
 --- !u!54 &802422416
 Rigidbody:
@@ -3875,8 +3906,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: 024a5ba47cda6774683d28856d75600e, type: 2}
 --- !u!54 &1015408878
 Rigidbody:
@@ -4498,6 +4534,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146178410}
   m_CullTransparentMesh: 1
+--- !u!1 &1171546441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3188375362096132327, guid: 104f6609858ec4b4eb3db58b9a9dde14, type: 3}
+  m_PrefabInstance: {fileID: 1938456333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1185176438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,8 +5137,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: d24e7f248b85e194d8803665096ac00c, type: 2}
 --- !u!54 &1399968402
 Rigidbody:
@@ -5473,8 +5519,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: bdb760e4b5f0e9d4cac884d12a222dd0, type: 2}
 --- !u!54 &1484403717
 Rigidbody:
@@ -5626,8 +5677,13 @@ MonoBehaviour:
   YOffset: 4
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: 521324a63b476f44a8bc74d31e2e5cd4, type: 2}
 --- !u!54 &1489678901
 Rigidbody:
@@ -6153,6 +6209,10 @@ PrefabInstance:
     - target: {fileID: 3770497067952840458, guid: cfae84680ab443e47b460d24404fec57, type: 3}
       propertyPath: m_Name
       value: Red1x1Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: FollowSpeed
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7061,13 +7121,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3188375362096132327, guid: 104f6609858ec4b4eb3db58b9a9dde14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1938456335}
   m_SourcePrefab: {fileID: 100100000, guid: 104f6609858ec4b4eb3db58b9a9dde14, type: 3}
 --- !u!4 &1938456334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2351092383110505829, guid: 104f6609858ec4b4eb3db58b9a9dde14, type: 3}
   m_PrefabInstance: {fileID: 1938456333}
   m_PrefabAsset: {fileID: 0}
+--- !u!208 &1938456335
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171546441}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 1.5, z: 1.0120001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1976449881
 GameObject:
   m_ObjectHideFlags: 0
@@ -7120,8 +7199,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: 843abebd66b1fb249b89fc150d0a4b14, type: 2}
 --- !u!54 &1976449884
 Rigidbody:
@@ -7802,8 +7886,13 @@ MonoBehaviour:
   YOffset: 3
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  DefaultLayer: 0
-  BrickLayer: 7
+  isHeld: 0
+  DefaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BrickLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: f22ac39b9e80d184d8b96c60b8abf7dd, type: 2}
 --- !u!54 &2146129470
 Rigidbody:

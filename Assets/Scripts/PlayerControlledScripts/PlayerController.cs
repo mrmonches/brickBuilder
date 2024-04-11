@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
             _brickController.Rigidbody.excludeLayers = BrickMask;
 
+            _brickController.BoxCollider.enabled = false;
+
             _brickController.SetDefaultLayer();
         }
     }
@@ -96,6 +98,8 @@ public class PlayerController : MonoBehaviour
             _brickController.Rigidbody.useGravity = true;
 
             _brickController.Rigidbody.excludeLayers = default;
+            
+            _brickController.BoxCollider.enabled = true;
 
             _brickController.SetBrickLayer();
 

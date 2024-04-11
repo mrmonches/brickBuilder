@@ -7,7 +7,6 @@
 controls how the bricks behave in game.
 *****************************************************************************/
 using UnityEngine;
-using UnityEngine.AI;
 
 public class BrickController : MonoBehaviour
 {
@@ -21,11 +20,13 @@ public class BrickController : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
+    private BoxCollider _boxCollider;
+
     private bool isPlaced;
-    private bool isHeld = false;
+    [SerializeField] private bool isHeld = false;
     private bool isPlacing;
 
-    [SerializeField] private int DefaultLayer, BrickLayer;
+    [SerializeField] private LayerMask DefaultLayer, BrickLayer;
 
     [SerializeField] private BrickDataSO _brickData;
 
@@ -38,6 +39,7 @@ public class BrickController : MonoBehaviour
     public Rigidbody Rigidbody { get => _rigidbody; set => _rigidbody = value; }
     public bool IsPlacing { get => isPlacing; set => isPlacing = value; }
     public BrickDataSO BrickData { get => _brickData; set => _brickData = value; }
+    public BoxCollider BoxCollider { get => _boxCollider; set => _boxCollider = value; }
 
     /// <summary>
     /// A function that assigns necessary references.
@@ -45,6 +47,8 @@ public class BrickController : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+
+        _boxCollider = GetComponent<BoxCollider>();
 
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
