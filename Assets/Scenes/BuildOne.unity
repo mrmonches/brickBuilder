@@ -208,10 +208,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 491d566560f1c554181753a35e473b6c, type: 2}
@@ -366,10 +365,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 40645169f2b63184cac8db80be501fde, type: 2}
@@ -789,6 +787,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 526aa9d39c905cf4ba16c51cf46593c0, type: 3}
+--- !u!1 &100277609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100277612}
+  - component: {fileID: 100277611}
+  - component: {fileID: 100277610}
+  m_Layer: 0
+  m_Name: Abyss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &100277610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100277609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4866199da3c9196489cecee86026e12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoints:
+  - {fileID: 514617128}
+--- !u!65 &100277611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100277609}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 80, y: 1, z: 80}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &100277612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100277609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -11.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &102864557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,10 +1168,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: d7e2a1964e7d88d47b2e9ab5cfdc6e37, type: 2}
@@ -2163,10 +2228,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 4c3032eb917176c458ed2003780dbca7, type: 2}
@@ -2541,6 +2605,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 28.63, y: 45, z: 0}
+--- !u!1 &514617127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514617128}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514617128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514617127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.907772, y: 2.45, z: 5.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &518273736
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,10 +3286,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: fa9e2c4c3d1ea9345ab1535ab9b2102f, type: 2}
@@ -3349,10 +3443,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: c62707e40b41f63448da0124a3cdbcc6, type: 2}
@@ -3465,6 +3558,18 @@ PrefabInstance:
     - target: {fileID: 1334881262372453901, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: m_Name
       value: Blue1x1Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
+      propertyPath: BrickMask.m_Bits
+      value: 1152
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
+      propertyPath: BrickLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
+      propertyPath: DefaultLayer.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8761589720329140986, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: m_RootOrder
@@ -3611,6 +3716,18 @@ PrefabInstance:
     - target: {fileID: 3559389767132046607, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
       propertyPath: m_Name
       value: Green1x1Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
+      propertyPath: BrickMask.m_Bits
+      value: 1152
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
+      propertyPath: BrickLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
+      propertyPath: DefaultLayer.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3907,10 +4024,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 024a5ba47cda6774683d28856d75600e, type: 2}
@@ -5030,7 +5146,7 @@ MonoBehaviour:
   CastDistance: 100
   LevelMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   BrickMask:
     serializedVersion: 2
     m_Bits: 128
@@ -5138,10 +5254,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: d24e7f248b85e194d8803665096ac00c, type: 2}
@@ -5520,10 +5635,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: bdb760e4b5f0e9d4cac884d12a222dd0, type: 2}
@@ -5678,10 +5792,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 521324a63b476f44a8bc74d31e2e5cd4, type: 2}
@@ -6210,9 +6323,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red1x1Brick
       objectReference: {fileID: 0}
+    - target: {fileID: 8479979054448567259, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
       propertyPath: FollowSpeed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: BrickMask.m_Bits
+      value: 1152
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: BrickLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: DefaultLayer.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7200,10 +7329,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 843abebd66b1fb249b89fc150d0a4b14, type: 2}
@@ -7587,6 +7715,18 @@ PrefabInstance:
       propertyPath: YOffset
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: BrickMask.m_Bits
+      value: 1152
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: BrickLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: DefaultLayer.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4784314043413058560, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7887,10 +8027,9 @@ MonoBehaviour:
   FollowSpeed: 20
   OffsetPos: {x: 0, y: 0.15, z: 0}
   isHeld: 0
-  DefaultLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  BrickLayer:
+  DefaultLayer: 0
+  BrickLayer: 0
+  BrickMask:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: f22ac39b9e80d184d8b96c60b8abf7dd, type: 2}

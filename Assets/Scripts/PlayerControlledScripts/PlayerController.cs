@@ -49,13 +49,9 @@ public class PlayerController : MonoBehaviour
         _playerInput.currentActionMap.Enable();
 
         select = _playerInput.currentActionMap.FindAction("Select");
-        //cameraControl = _playerInput.currentActionMap.FindAction("CameraControl");
 
         select.started += Select_started;
         select.canceled += Select_canceled;
-
-        //cameraControl.started += CameraControl_started;
-        //cameraControl.canceled += CameraControl_canceled;
     }
 
 
@@ -72,13 +68,7 @@ public class PlayerController : MonoBehaviour
 
             isHolding = true;
 
-            _brickController.Rigidbody.useGravity = false;
-
-            _brickController.Rigidbody.excludeLayers = BrickMask;
-
-            _brickController.BoxCollider.enabled = false;
-
-            _brickController.SetDefaultLayer();
+            _brickController.OnPickup();
         }
     }
 
@@ -95,13 +85,7 @@ public class PlayerController : MonoBehaviour
 
             isHolding = false;
 
-            _brickController.Rigidbody.useGravity = true;
-
-            _brickController.Rigidbody.excludeLayers = default;
-            
-            _brickController.BoxCollider.enabled = true;
-
-            _brickController.SetBrickLayer();
+            _brickController.OnDrop();
 
             // Makes sure brick is placed.
             if (_brickController.IsPlacing)
@@ -274,8 +258,5 @@ public class PlayerController : MonoBehaviour
     {
         select.started -= Select_started;
         select.canceled -= Select_canceled;
-
-        //cameraControl.started -= CameraControl_started;
-        //cameraControl.canceled -= CameraControl_canceled;
     }
 }

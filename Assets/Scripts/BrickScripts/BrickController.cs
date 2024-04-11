@@ -7,6 +7,7 @@
 controls how the bricks behave in game.
 *****************************************************************************/
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BrickController : MonoBehaviour
 {
@@ -26,9 +27,13 @@ public class BrickController : MonoBehaviour
     [SerializeField] private bool isHeld = false;
     private bool isPlacing;
 
-    [SerializeField] private LayerMask DefaultLayer, BrickLayer;
+    [SerializeField] private int DefaultLayer, BrickLayer;
+        
+    [SerializeField] private LayerMask BrickMask;
 
     [SerializeField] private BrickDataSO _brickData;
+
+    private NavMeshObstacle brickObstacle;
 
     private bool lockBrick;
 
@@ -58,6 +63,8 @@ public class BrickController : MonoBehaviour
             _companionController = GameObject.Find("Tiny").GetComponent<CompanionController>();
 
             _companionController.CurrentBricks.Add(gameObject);
+
+            brickObstacle = GetComponent<NavMeshObstacle>();
         }
     }
 
@@ -121,6 +128,38 @@ public class BrickController : MonoBehaviour
         {
             IsPlacing = true;
         }
+    }
+
+    /// <summary>
+    /// A function that makes brick variables match conditions when picked up by player
+    /// </summary>
+    public void OnPickup()
+    {
+        _rigidbody.useGravity = false;
+
+        _rigidbody.excludeLayers = BrickMask;
+
+        _boxCollider.isTrigger = true;
+
+        brickObstacle.enabled = false; 
+
+        SetDefaultLayer();
+    }
+
+    /// <summary>
+    /// A function that makes brick variables match conditions when dropped by player
+    /// </summary>
+    public void OnDrop()
+    {
+        _rigidbody.useGravity = true;
+
+        _rigidbody.excludeLayers = default;
+
+        _boxCollider.isTrigger = false;
+
+        brickObstacle.enabled = true;
+
+        SetBrickLayer();
     }
 
     /// <summary>
