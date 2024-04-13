@@ -34,7 +34,7 @@ public class CompanionController : MonoBehaviour
     public void ClosestBrick()
     {
         // If there are more than 0 elements in the currentBricks list
-        if (currentBricks.Count > 0)
+        if (currentBricks.Count != 0)
         {
             GameObject brick = currentBricks[0];
 
@@ -70,7 +70,8 @@ public class CompanionController : MonoBehaviour
     /// <returns></returns>
     private bool IsCloseToBrick()
     {
-        if (Vector3.Distance(transform.position, currentTarget.transform.position) > DistanceFromBrick)
+        if (currentTarget != null && 
+            Vector3.Distance(transform.position, currentTarget.transform.position) > DistanceFromBrick)
         {
             return false;
         }
@@ -88,7 +89,7 @@ public class CompanionController : MonoBehaviour
     {
         if(currentTarget == brick)
         {
-            currentTarget = null;
+            ClearCompanionConditions();
         }
 
         currentBricks.Remove(brick);
@@ -116,6 +117,9 @@ public class CompanionController : MonoBehaviour
         currentTarget.transform.position = HoldingPos.position;
     }
 
+    /// <summary>
+    /// A function that rotates the companion towards the player camera
+    /// </summary>
     private void LookTowardsPlayer()
     {
         lookDirection = (CameraTarget.position - transform.position).normalized;

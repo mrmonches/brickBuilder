@@ -180,8 +180,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
   YOffset: 3
-  FollowSpeed: 20
-  isPlaced: 0
+  SlerpSpeed: 25
+  OffsetPos: {x: 0, y: 0, z: 0}
+  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 7
+  BrickMask:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: c62707e40b41f63448da0124a3cdbcc6, type: 2}

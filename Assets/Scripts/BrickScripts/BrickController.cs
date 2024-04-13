@@ -6,6 +6,7 @@
 // Brief Description : This is a script that manages the attributes and 
 controls how the bricks behave in game.
 *****************************************************************************/
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,8 +15,9 @@ public class BrickController : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
 
     [SerializeField] private float YOffset;
-    [SerializeField] private float FollowSpeed;
+    [SerializeField] private float SlerpSpeed;
     [SerializeField] private Vector3 OffsetPos;
+
 
     private Vector3 placedPos;
 
@@ -73,7 +75,7 @@ public class BrickController : MonoBehaviour
     /// </summary>
     private void FollowPlayerMouse()
     {
-        transform.position = Vector3.MoveTowards(transform.position, AdjustedMousePos(), FollowSpeed * Time.deltaTime);
+        transform.position = Vector3.Slerp(transform.position, AdjustedMousePos(), SlerpSpeed * Time.deltaTime);
     }
 
     /// <summary>
@@ -113,11 +115,13 @@ public class BrickController : MonoBehaviour
         // Fix to a bug where bricks other than OneByOne's would be placed into the building plane.
         if (_brickData.BrickType != BrickType.OneByOne)
         {
-            transform.position = selectedSpot.transform.position + OffsetPos;
+            transform.position = Vector3.Slerp(transform.position, selectedSpot.transform.position + OffsetPos, 
+                SlerpSpeed * Time.deltaTime);
         }
         else
         {
-            transform.position = selectedSpot.transform.position;
+            transform.position = Vector3.Slerp(transform.position, selectedSpot.transform.position, 
+                SlerpSpeed * Time.deltaTime);
         }
 
         // Allows bricks to be rotated to the correct spot based on the outline.
@@ -129,6 +133,14 @@ public class BrickController : MonoBehaviour
             IsPlacing = true;
         }
     }
+
+    //private IEnumerator BrickSlerp(GameObject spot)
+    //{
+    //    if (true)
+    //    {
+
+    //    }
+    //}
 
     /// <summary>
     /// A function that makes brick variables match conditions when picked up by player

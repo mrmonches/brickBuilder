@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1666082726302479805}
   - component: {fileID: 1173456928739442676}
   - component: {fileID: 8562720724376093565}
+  - component: {fileID: 8644400200846770705}
   m_Layer: 7
   m_Name: 2x1Model
   m_TagString: Brick
@@ -138,7 +139,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3.3384898, y: 6.676979, z: 2}
-  m_Center: {x: 1.3273833e-15, y: -0.00000024771197, z: -0.21}
+  m_Center: {x: 1.3273833e-15, y: -0.00000024771197, z: -0.12}
 --- !u!54 &1173456928739442676
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -180,9 +181,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
   YOffset: 3
-  FollowSpeed: 20
+  SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  isPlaced: 0
+  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 7
+  BrickMask:
+    serializedVersion: 2
+    m_Bits: 0
   _brickData: {fileID: 11400000, guid: 491d566560f1c554181753a35e473b6c, type: 2}
+--- !u!208 &8644400200846770705
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871303492336621402}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.669, y: 3.338, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: -0.12}
+  m_TimeToStationary: 0
