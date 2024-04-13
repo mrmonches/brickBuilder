@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +17,8 @@ public class CompanionController : MonoBehaviour
     [SerializeField] private Transform HoldingPos;
 
     [SerializeField] private List<GameObject> currentBricks = new List<GameObject>();
+
+    private bool isHolding;
 
     [Header("Companion-Look Variables")]
     [SerializeField] private float LookSpeed;
@@ -104,6 +105,8 @@ public class CompanionController : MonoBehaviour
 
         currentController = null;
 
+        isHolding = false;
+
         _currentState = CompanionStates.Idle;
 
         Agent.ResetPath();
@@ -114,7 +117,12 @@ public class CompanionController : MonoBehaviour
     /// </summary>
     private void HoldBrick()
     {
-        currentTarget.transform.position = HoldingPos.position;
+        if (!isHolding)
+        {
+            currentTarget.transform.position = HoldingPos.position;
+            currentController.DisableGravity();
+            isHolding = true;
+        }
     }
 
     /// <summary>

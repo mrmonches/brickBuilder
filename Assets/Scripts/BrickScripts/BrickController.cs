@@ -6,7 +6,6 @@
 // Brief Description : This is a script that manages the attributes and 
 controls how the bricks behave in game.
 *****************************************************************************/
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +17,7 @@ public class BrickController : MonoBehaviour
     [SerializeField] private float SlerpSpeed;
     [SerializeField] private Vector3 OffsetPos;
 
+    [SerializeField] private Vector3 ExpandedCarve;
 
     private Vector3 placedPos;
 
@@ -58,7 +58,6 @@ public class BrickController : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider>();
 
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-
 
         if (gameObject.layer != 9)
         {
@@ -134,13 +133,10 @@ public class BrickController : MonoBehaviour
         }
     }
 
-    //private IEnumerator BrickSlerp(GameObject spot)
-    //{
-    //    if (true)
-    //    {
-
-    //    }
-    //}
+    public void DisableGravity()
+    {
+        _rigidbody.useGravity = false;
+    }
 
     /// <summary>
     /// A function that makes brick variables match conditions when picked up by player
@@ -189,6 +185,8 @@ public class BrickController : MonoBehaviour
         if (IsPlaced && !lockBrick)
         {
             lockBrick = true;
+
+            brickObstacle.size = ExpandedCarve;
 
             _companionController.RemoveBrickFromRange(gameObject);
 

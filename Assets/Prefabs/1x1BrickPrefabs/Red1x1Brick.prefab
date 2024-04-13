@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9050105423007349208}
   - component: {fileID: 8479979054448567259}
   - component: {fileID: 8757329826433870654}
+  - component: {fileID: 1592714646800932360}
   m_Layer: 7
   m_Name: 1x1Model
   m_TagString: Brick
@@ -150,6 +151,7 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0, z: 0}
+  ExpandedCarve: {x: 0, y: 0, z: 0}
   isHeld: 0
   DefaultLayer: 0
   BrickLayer: 7
@@ -157,6 +159,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: bdb760e4b5f0e9d4cac884d12a222dd0, type: 2}
+--- !u!208 &1592714646800932360
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2713815562520855854}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0
 --- !u!1 &3770497067952840458
 GameObject:
   m_ObjectHideFlags: 0

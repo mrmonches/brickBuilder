@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
                 _brickController.SetDefaultLayer();
 
-                _brickController.Rigidbody.constraints = UnityEngine.RigidbodyConstraints.FreezeAll;
+                _brickController.Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
                 Destroy(_outlineController.gameObject);
 
