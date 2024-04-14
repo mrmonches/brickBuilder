@@ -24,5 +24,6 @@ public enum BrickColor
     Red,
     Blue,
     Green,
-    Yellow
+    Yellow,
+    Brown
 }

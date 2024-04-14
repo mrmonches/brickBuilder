@@ -68,14 +68,14 @@ public class BrickController : MonoBehaviour
 
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        if (gameObject.layer != 9)
-        {
-            _companionController = GameObject.Find("Tiny").GetComponent<CompanionController>();
+        //if (gameObject.layer != 9)
+        //{
+        //    _companionController = GameObject.Find("Tiny").GetComponent<CompanionController>();
 
-            _companionController.CurrentBricks.Add(gameObject);
+        //    _companionController.CurrentBricks.Add(gameObject);
 
-            brickObstacle = GetComponent<NavMeshObstacle>();
-        }
+        //    brickObstacle = GetComponent<NavMeshObstacle>();
+        //}
     }
 
     /// <summary>
