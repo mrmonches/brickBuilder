@@ -183,13 +183,16 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0.15, z: 0}
+  ExpandedCarve: {x: 8, y: 8, z: 2}
   isHeld: 0
   DefaultLayer: 0
   BrickLayer: 7
   BrickMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1152
   _brickData: {fileID: 11400000, guid: d24e7f248b85e194d8803665096ac00c, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!208 &2869867817323058687
 NavMeshObstacle:
   m_ObjectHideFlags: 0

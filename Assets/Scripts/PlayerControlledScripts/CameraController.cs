@@ -45,31 +45,26 @@ public class CameraController : MonoBehaviour
         //    transform.rotation, CameraPositions[currentPos].rotation));
     }
 
-    private void Update()
-    {
-        //if (_isMoving && transform.position != CameraPositions[currentPos].transform.position)
-        //{
-        //    transform.RotateAround(BuildingPlane.transform.position, Vector3.up, CameraAngle);
-        //}
-        //else if (_isMoving && transform.position == CameraPositions[currentPos].transform.position)
-        //{
-        //    _isMoving = false;
-
-        //    transform.position = CameraPositions[currentPos].transform.position;
-        //    transform.rotation = CameraPositions[currentPos].transform.rotation;
-        //}
-    }
-
-    private IEnumerator LerpFromTo(Vector3 pos1, Vector3 pos2, float duration, Quaternion rot1, Quaternion rot2)
-    {
-        for (float time = 0f; time < duration; time += Time.deltaTime)
-        {
-            transform.position = Vector3.Lerp(pos1, pos2, time / duration);
-            transform.rotation = Quaternion.Lerp(rot1, rot2, time / duration);
-            yield return null;
-        }
-        transform.position = pos2;
-        transform.rotation = rot2;
-        _isMoving = false;
-    }
+    /// <summary>
+    /// A function that allows the camera to lerp between two points
+    /// Currently not in use
+    /// </summary>
+    /// <param name="pos1"></param> Function's starting position
+    /// <param name="pos2"></param> Function's ending position
+    /// <param name="duration"></param> Function's lerp length
+    /// <param name="rot1"></param> Function's starting rotation
+    /// <param name="rot2"></param> Function's ending rotation
+    /// <returns></returns>
+    //private IEnumerator LerpFromTo(Vector3 pos1, Vector3 pos2, float duration, Quaternion rot1, Quaternion rot2)
+    //{
+    //    for (float time = 0f; time < duration; time += Time.deltaTime)
+    //    {
+    //        transform.position = Vector3.Lerp(pos1, pos2, time / duration);
+    //        transform.rotation = Quaternion.Lerp(rot1, rot2, time / duration);
+    //        yield return null;
+    //    }
+    //    transform.position = pos2;
+    //    transform.rotation = rot2;
+    //    _isMoving = false;
+    //}
 }

@@ -151,13 +151,16 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0.15, z: 0}
+  ExpandedCarve: {x: 8, y: 8, z: 2}
   isHeld: 0
   DefaultLayer: 0
   BrickLayer: 7
   BrickMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1280
   _brickData: {fileID: 11400000, guid: 4c3032eb917176c458ed2003780dbca7, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!208 &5552874802022844607
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -204,5 +207,5 @@ Transform:
   m_Children:
   - {fileID: 9063686216260036715}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

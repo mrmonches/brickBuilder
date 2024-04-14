@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
             isHolding = true;
 
-            _brickController.IsHovering = false;
+            //_brickController.IsHovering = false;
 
             _brickController.OnPickup();
         }
@@ -194,14 +194,14 @@ public class PlayerController : MonoBehaviour
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
 
-                _brickController.OnHover();
+                //_brickController.OnHover();
             }
             // If the current hit's reference doesn't equal the current reference and the player isn't holding a brick
             else if (hit.rigidbody.gameObject.GetComponent<BrickController>() != _brickController && !isHolding)
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
 
-                _brickController.OnHover();
+                //_brickController.OnHover();
             }
         }
         // If mouse is hovering over an outline and is holding a brick
@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
             // Makes sure that there isn't a reference at times, important
             if (_brickController != null && !_brickController.IsHeld)
             {
-                _brickController.OnUnhover();
+                //_brickController.OnUnhover();
 
                 _brickController = null;
             }

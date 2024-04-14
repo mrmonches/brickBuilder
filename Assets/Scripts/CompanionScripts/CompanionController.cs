@@ -16,7 +16,7 @@ public class CompanionController : MonoBehaviour
 
     [SerializeField] private Transform HoldingPos;
 
-    [SerializeField] private List<GameObject> currentBricks = new List<GameObject>();
+    private List<GameObject> currentBricks = new List<GameObject>();
 
     private bool isHolding;
 

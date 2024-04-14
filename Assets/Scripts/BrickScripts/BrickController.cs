@@ -150,6 +150,9 @@ public class BrickController : MonoBehaviour
         _rigidbody.useGravity = false;
     }
 
+    /// <summary>
+    /// A function that enables the brick's gravity
+    /// </summary>
     private void EnableGravity()
     {
         _rigidbody.useGravity = true;
@@ -187,6 +190,10 @@ public class BrickController : MonoBehaviour
         SetBrickLayer();
     }
 
+    /// <summary>
+    /// A function that allows the brick to hover whenever the player's cursor is over the brick
+    /// Currently not in use
+    /// </summary>
     public void OnHover()
     {
         if (!isHovering)
@@ -195,10 +202,14 @@ public class BrickController : MonoBehaviour
 
             DisableGravity();
 
-            HighlightPosition();
+            HoverPosition();
         }
     }
 
+    /// <summary>
+    /// A function that allows the brick to unhover whenever the player's cursor leaves the brick
+    /// Currently not in use
+    /// </summary>
     public void OnUnhover()
     {
         if(isHovering)
@@ -209,12 +220,18 @@ public class BrickController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A function that handles the brick hover
+    /// </summary>
     private void HoverSlerp()
     {
         transform.position = Vector3.Slerp(transform.position, hoverPos, HoverSpeed * Time.deltaTime);
     }
 
-    private void HighlightPosition()
+    /// <summary>
+    /// A function that calculates a new hover position when called
+    /// </summary>
+    private void HoverPosition()
     {
         hoverPos = new Vector3(transform.position.x, transform.position.y + HoverHeight, transform.position.z);
     }

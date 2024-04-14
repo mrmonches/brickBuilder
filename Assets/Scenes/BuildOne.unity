@@ -1429,7 +1429,6 @@ MonoBehaviour:
   DistanceFromBrick: 5
   CameraTarget: {fileID: 113543256}
   HoldingPos: {fileID: 615615974}
-  currentBricks: []
   LookSpeed: 0.5
 --- !u!114 &232541846
 MonoBehaviour:
@@ -1438,7 +1437,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232541844}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f700774cc0defca4aab9a6666c947435, type: 3}
   m_Name: 
@@ -1453,7 +1452,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232541844}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: -334000983
   m_Radius: 0.05
   m_Speed: 5
