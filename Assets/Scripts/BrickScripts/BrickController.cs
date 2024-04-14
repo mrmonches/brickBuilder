@@ -41,15 +41,24 @@ public class BrickController : MonoBehaviour
 
     private CompanionController _companionController;
 
+    [Header("Brick-hover variables")]
+    [SerializeField] private float HoverHeight;
+    [SerializeField] private float HoverSpeed;
+
+    private Vector3 hoverPos;
+
+    private bool isHovering;
+
     public bool IsPlaced { get => isPlaced; set => isPlaced = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }
     public Rigidbody Rigidbody { get => _rigidbody; set => _rigidbody = value; }
     public bool IsPlacing { get => isPlacing; set => isPlacing = value; }
     public BrickDataSO BrickData { get => _brickData; set => _brickData = value; }
     public BoxCollider BoxCollider { get => _boxCollider; set => _boxCollider = value; }
+    public bool IsHovering { get => isHovering; set => isHovering = value; }
 
     /// <summary>
-    /// A function that assigns necessary references.
+    /// A function that assigns necessary references
     /// </summary>
     private void Awake()
     {
@@ -70,7 +79,7 @@ public class BrickController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that allows the brick to follow the mouse.
+    /// A function that allows the brick to follow the mouse
     /// </summary>
     private void FollowPlayerMouse()
     {
@@ -78,7 +87,7 @@ public class BrickController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that sets the brick's layer to default.
+    /// A function that sets the brick's layer to default
     /// </summary>
     public void SetDefaultLayer()
     {
@@ -86,7 +95,7 @@ public class BrickController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that sets the brick's layer to brick.
+    /// A function that sets the brick's layer to brick
     /// </summary>
     public void SetBrickLayer()
     {
@@ -94,9 +103,9 @@ public class BrickController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that returns an adjusted mouse position.
+    /// A function that returns an adjusted mouse position
     /// </summary>
-    /// <returns></returns> Returns the adjusted mouse position.
+    /// <returns></returns> Returns the adjusted mouse position
     private Vector3 AdjustedMousePos()
     {
         return new Vector3(_playerController.GetSelectedMapPosition().x, _playerController.GetSelectedMapPosition().y
@@ -104,14 +113,14 @@ public class BrickController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that brings the brick to the selected outline.
+    /// A function that brings the brick to the selected outline
     /// </summary>
-    /// <param name="selectedSpot"></param> Parameter based on selected outline.
+    /// <param name="selectedSpot"></param> Parameter based on selected outline
     public void GoToSelectedSpot(GameObject selectedSpot)
     {
         placedPos = selectedSpot.transform.position;
 
-        // Fix to a bug where bricks other than OneByOne's would be placed into the building plane.
+        // Fix to a bug where bricks other than OneByOne's would be placed into the building plane
         if (_brickData.BrickType != BrickType.OneByOne)
         {
             transform.position = Vector3.Slerp(transform.position, selectedSpot.transform.position + OffsetPos, 
@@ -123,19 +132,27 @@ public class BrickController : MonoBehaviour
                 SlerpSpeed * Time.deltaTime);
         }
 
-        // Allows bricks to be rotated to the correct spot based on the outline.
+        // Allows bricks to be rotated to the correct spot based on the outline
         transform.rotation = selectedSpot.transform.rotation;
 
-        // Makes brick unable to be picked up.
+        // Makes brick unable to be picked up
         if (!IsPlacing)
         {
             IsPlacing = true;
         }
     }
 
+    /// <summary>
+    /// A function that disables the brick's gravity
+    /// </summary>
     public void DisableGravity()
     {
         _rigidbody.useGravity = false;
+    }
+
+    private void EnableGravity()
+    {
+        _rigidbody.useGravity = true;
     }
 
     /// <summary>
@@ -170,15 +187,52 @@ public class BrickController : MonoBehaviour
         SetBrickLayer();
     }
 
+    public void OnHover()
+    {
+        if (!isHovering)
+        {
+            isHovering = true;
+
+            DisableGravity();
+
+            HighlightPosition();
+        }
+    }
+
+    public void OnUnhover()
+    {
+        if(isHovering)
+        {
+            isHovering = false;
+
+            EnableGravity();
+        }
+    }
+
+    private void HoverSlerp()
+    {
+        transform.position = Vector3.Slerp(transform.position, hoverPos, HoverSpeed * Time.deltaTime);
+    }
+
+    private void HighlightPosition()
+    {
+        hoverPos = new Vector3(transform.position.x, transform.position.y + HoverHeight, transform.position.z);
+    }
+
     /// <summary>
-    /// A function that updates every frame, after Update runs.
+    /// A function that updates every frame, after Update runs
     /// </summary>
     private void LateUpdate()
     {
-        // Makes sure the brick is only following at certain points.
+        // Makes sure the brick is only following at certain points
         if (IsHeld && !IsPlacing)
         {
             FollowPlayerMouse();
+        }
+
+        if (isHovering)
+        {
+            HoverSlerp();
         }
 
         // Locks brick in place

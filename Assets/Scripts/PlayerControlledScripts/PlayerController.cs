@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _playerInput;
 
     private InputAction select;
-    //private InputAction cameraControl;
 
     private Vector3 mousePosition;
 
@@ -29,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask LevelMask, BrickMask, OutlineMask;
 
     // Brick Settings
-    private BrickController _brickController;
+    [SerializeField] private BrickController _brickController;
     private bool isHolding;
 
     // Outline Settings
@@ -39,8 +38,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CameraController _mainCameraController, _instructionCameraController;
 
     /// <summary>
-    /// A function that runs when the object is awake.
-    /// Assigns references to variables and allows player to control the game.
+    /// A function that runs when the object is awake
+    /// Assigns references to variables and allows player to control the game
     /// </summary>
     private void Awake()
     {
@@ -56,29 +55,31 @@ public class PlayerController : MonoBehaviour
 
 
     /// <summary>
-    /// A function that handles when a player selects an object.
+    /// A function that handles when a player selects an object
     /// </summary>
-    /// <param name="obj"></param> Parameter that comes from input.
+    /// <param name="obj"></param> Parameter that comes from input
     private void Select_started(InputAction.CallbackContext obj)
     {
-        // Makes sure that there is a brick reference and the brick isn't placed.
+        // Makes sure that there is a brick reference and the brick isn't placed
         if (_brickController != null && !_brickController.IsPlaced)
         {
             _brickController.IsHeld = true;
 
             isHolding = true;
 
+            _brickController.IsHovering = false;
+
             _brickController.OnPickup();
         }
     }
 
     /// <summary>
-    /// A function that handles when a player releases an object.
+    /// A function that handles when a player releases an object
     /// </summary>
-    /// <param name="obj"></param> Parameter that comes from input.
+    /// <param name="obj"></param> Parameter that comes from input
     private void Select_canceled(InputAction.CallbackContext obj)
     {
-        // Makes sure there is a brick reference and that the brick is held and not placed.
+        // Makes sure there is a brick reference and that the brick is held and not placed
         if (_brickController != null && _brickController.IsHeld && !_brickController.IsPlaced)
         {
             _brickController.IsHeld = false;
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
             _brickController.OnDrop();
 
-            // Makes sure brick is placed.
+            // Makes sure brick is placed
             if (_brickController.IsPlacing)
             {
                 _brickController.IsPlaced = true;
@@ -135,16 +136,16 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that assigns mouse position on mouse movement.
+    /// A function that assigns mouse position on mouse movement
     /// </summary>
-    /// <param name="mousePos"></param> Parameter that comes from input.
+    /// <param name="mousePos"></param> Parameter that comes from input
     private void OnMouse(InputValue mousePos)
     {
         mousePosition = mousePos.Get<Vector2>();
     }
 
     /// <summary>
-    /// A function that reloads the current scene based on player input.
+    /// A function that reloads the current scene based on player input
     /// </summary>
     private void OnReload()
     {
@@ -152,7 +153,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that quits the game based on player input.
+    /// A function that quits the game based on player input
     /// </summary>
     private void OnQuit()
     {
@@ -160,9 +161,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that returns the map position based on mouse position.
+    /// A function that returns the map position based on mouse position
     /// </summary>
-    /// <returns></returns> Returns the desired map position.
+    /// <returns></returns> Returns the desired map position
     public Vector3 GetSelectedMapPosition()
     {
         mousePosition.z = SceneCamera.nearClipPlane;
@@ -177,9 +178,9 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that handles the player-brick-outline interaction.
-    /// Very complicated and bloated, potential for optimization.
-    /// Currently arranged to catch any outlying conditions for best player experience.
+    /// A function that handles the player-brick-outline interaction
+    /// Very complicated and bloated, potential for optimization
+    /// Currently arranged to catch any outlying conditions for best player experience
     /// </summary>
     private void BrickHighlight()
     {
@@ -192,11 +193,15 @@ public class PlayerController : MonoBehaviour
             if (hit.rigidbody.gameObject.GetComponent<BrickController>() != null && _brickController == null)
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
+
+                _brickController.OnHover();
             }
             // If the current hit's reference doesn't equal the current reference and the player isn't holding a brick
             else if (hit.rigidbody.gameObject.GetComponent<BrickController>() != _brickController && !isHolding)
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
+
+                _brickController.OnHover();
             }
         }
         // If mouse is hovering over an outline and is holding a brick
@@ -236,6 +241,8 @@ public class PlayerController : MonoBehaviour
             // Makes sure that there isn't a reference at times, important
             if (_brickController != null && !_brickController.IsHeld)
             {
+                _brickController.OnUnhover();
+
                 _brickController = null;
             }
 
@@ -244,7 +251,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that is called every frame.
+    /// A function that is called every frame
     /// </summary>
     private void Update()
     {
@@ -252,7 +259,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that is called on end of play.
+    /// A function that is called on end of play
     /// </summary>
     private void OnDestroy()
     {

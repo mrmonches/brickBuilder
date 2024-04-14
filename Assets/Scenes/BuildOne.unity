@@ -215,6 +215,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 491d566560f1c554181753a35e473b6c, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &15952349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -373,6 +375,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 40645169f2b63184cac8db80be501fde, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &34885422
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1164,7 +1168,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217455879}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46659565c8f53164ab80f26caed7074f, type: 3}
   m_Name: 
@@ -1181,6 +1185,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: d7e2a1964e7d88d47b2e9ab5cfdc6e37, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &217455882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1225,7 +1231,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 2, y: 1.9999998, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1432,7 +1438,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232541844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f700774cc0defca4aab9a6666c947435, type: 3}
   m_Name: 
@@ -1447,7 +1453,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232541844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: -334000983
   m_Radius: 0.05
   m_Speed: 5
@@ -2250,6 +2256,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 4c3032eb917176c458ed2003780dbca7, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &465392576
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3313,6 +3321,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: fa9e2c4c3d1ea9345ab1535ab9b2102f, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &785687401
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3471,6 +3481,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: c62707e40b41f63448da0124a3cdbcc6, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &802422416
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4085,6 +4097,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 024a5ba47cda6774683d28856d75600e, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &1015408878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4783,6 +4797,7 @@ Transform:
   - {fileID: 1013033873}
   - {fileID: 2025279785}
   - {fileID: 1185176439}
+  - {fileID: 2097418761}
   m_Father: {fileID: 519645511}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5075,7 +5090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1317675937
 Transform:
   m_ObjectHideFlags: 0
@@ -5168,7 +5183,6 @@ GameObject:
   - component: {fileID: 1396249249}
   - component: {fileID: 1396249248}
   - component: {fileID: 1396249247}
-  - component: {fileID: 1396249246}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5176,22 +5190,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1396249246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396249245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4093d47a2e1b3314da14da9b9f257601, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MouseIndicator: {fileID: 0}
-  _playerController: {fileID: 1396249247}
-  _grid: {fileID: 226627563}
-  BrickOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1396249247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5216,6 +5214,7 @@ MonoBehaviour:
   OutlineMask:
     serializedVersion: 2
     m_Bits: 256
+  _brickController: {fileID: 0}
   _mainCameraController: {fileID: 489711896}
   _instructionCameraController: {fileID: 1117031559}
 --- !u!114 &1396249248
@@ -5324,6 +5323,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: d24e7f248b85e194d8803665096ac00c, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &1399968402
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5706,6 +5707,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: bdb760e4b5f0e9d4cac884d12a222dd0, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &1484403717
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5864,6 +5867,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 521324a63b476f44a8bc74d31e2e5cd4, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &1489678901
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6964,6 +6969,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2a83c0c5a99b8344d89e3588f080a927, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1414797800409928241, guid: 2a83c0c5a99b8344d89e3588f080a927, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7009,6 +7018,89 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 232541845}
   m_SourcePrefab: {fileID: 100100000, guid: 2a83c0c5a99b8344d89e3588f080a927, type: 3}
+--- !u!1 &1891730913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891730914}
+  - component: {fileID: 1891730916}
+  - component: {fileID: 1891730915}
+  m_Layer: 9
+  m_Name: 1x1Model
+  m_TagString: Brick
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891730914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891730913}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2097418761}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!23 &1891730915
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891730913}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d1c4b6f4874c715478b076efca3eccad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1891730916
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891730913}
+  m_Mesh: {fileID: -5495902117074765545, guid: d504300e9381a84468c712e37f9162c7, type: 3}
 --- !u!1 &1894325656
 GameObject:
   m_ObjectHideFlags: 0
@@ -7438,6 +7530,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: 843abebd66b1fb249b89fc150d0a4b14, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &1976449884
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7814,9 +7908,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1127169437}
     m_Modifications:
+    - target: {fileID: 3043351060695395608, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: YOffset
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: HoverSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: HoverHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
       propertyPath: MouseSlerpSpeed
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: HighlightedSlerp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: HighlightedHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: HighlightedHeight.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4784314043413058560, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
       propertyPath: m_RootOrder
@@ -8069,6 +8191,38 @@ Transform:
   m_Father: {fileID: 397199298}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2097418760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097418761}
+  m_Layer: 9
+  m_Name: Yellow1x1BrickTest
+  m_TagString: Brick
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2097418761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097418760}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1891730914}
+  m_Father: {fileID: 1205453912}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146129467
 GameObject:
   m_ObjectHideFlags: 0
@@ -8129,6 +8283,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _brickData: {fileID: 11400000, guid: f22ac39b9e80d184d8b96c60b8abf7dd, type: 2}
+  HoverHeight: 0
+  HoverSpeed: 0
 --- !u!54 &2146129470
 Rigidbody:
   m_ObjectHideFlags: 0
