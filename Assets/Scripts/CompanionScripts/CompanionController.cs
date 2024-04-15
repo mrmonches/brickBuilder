@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : CompanionController.cs
+// Author : Nolan J. Stein
+// Creation Date : April 4, 2024
+//
+// Brief Description : This is a script that handles most of the companion
+behaviors inside of the game. Surprisingly, it works.
+*****************************************************************************/
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;

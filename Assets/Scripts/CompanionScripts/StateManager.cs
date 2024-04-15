@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : StateManager.cs
+// Author : Nolan J. Stein
+// Creation Date : April 15, 2024
+//
+// Brief Description : This is another script that handles the behaviors
+for the companion in game. Without this, the other script would not run.
+*****************************************************************************/
 using System.Collections;
 using UnityEngine;
 
@@ -65,6 +73,9 @@ public class StateManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A function that is called every frame.
+    /// </summary>
     private void Update()
     {
         if (!StateActive)

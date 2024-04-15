@@ -5,7 +5,6 @@
 //
 // Brief Description : This is a script that controls the camera position.
 *****************************************************************************/
-using System.Collections;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
