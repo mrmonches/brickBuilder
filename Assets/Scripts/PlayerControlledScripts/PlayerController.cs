@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float CastDistance;
 
     [SerializeField] private LayerMask LevelMask, BrickMask, OutlineMask;
+    [SerializeField] private int PlaneLayer;
 
     // Brick Settings
     [SerializeField] private BrickController _brickController;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
             isHolding = true;
 
-            //_brickController.IsHovering = false;
+            _brickController.IsHovering = false;
 
             _brickController.OnPickup();
         }
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour
             {
                 _brickController.IsPlaced = true;
 
-                _brickController.SetDefaultLayer();
+                _brickController.SetPlacingLayer();
 
                 _brickController.Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
@@ -105,26 +106,6 @@ public class PlayerController : MonoBehaviour
             _brickController = null;
         }
     }
-
-    ///// <summary>
-    ///// A function that handles the camera rotation based on player input.
-    ///// </summary>
-    ///// <param name="obj"></param> Parameter that comes from input.
-    //private void CameraControl_started(InputAction.CallbackContext obj)
-    //{
-    //    _mainCameraController.CameraInput = cameraControl.ReadValue<float>();
-    //    _instructionCameraController.CameraInput = cameraControl.ReadValue<float>();
-    //}
-
-    ///// <summary>
-    ///// A function that resets the camera rotation based on player input.
-    ///// </summary>
-    ///// <param name="obj"></param> Parameter that comes from input.
-    //private void CameraControl_canceled(InputAction.CallbackContext obj)
-    //{
-    //    _mainCameraController.CameraInput = 0f;
-    //    _instructionCameraController.CameraInput = 0f;
-    //}
 
     private void OnCameraControl()
     {
@@ -194,14 +175,16 @@ public class PlayerController : MonoBehaviour
             {
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
 
-                //_brickController.OnHover();
+                _brickController.OnHover();
             }
             // If the current hit's reference doesn't equal the current reference and the player isn't holding a brick
             else if (hit.rigidbody.gameObject.GetComponent<BrickController>() != _brickController && !isHolding)
             {
+                _brickController.OnUnhover();
+
                 _brickController = hit.rigidbody.gameObject.GetComponent<BrickController>();
 
-                //_brickController.OnHover();
+                _brickController.OnHover();
             }
         }
         // If mouse is hovering over an outline and is holding a brick
@@ -241,7 +224,7 @@ public class PlayerController : MonoBehaviour
             // Makes sure that there isn't a reference at times, important
             if (_brickController != null && !_brickController.IsHeld)
             {
-                //_brickController.OnUnhover();
+                _brickController.OnUnhover();
 
                 _brickController = null;
             }

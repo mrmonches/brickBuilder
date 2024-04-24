@@ -7,7 +7,6 @@
 controls how the bricks behave in game.
 *****************************************************************************/
 using UnityEngine;
-using UnityEngine.AI;
 
 public class BrickController : MonoBehaviour
 {
@@ -17,8 +16,6 @@ public class BrickController : MonoBehaviour
     [SerializeField] private float SlerpSpeed;
     [SerializeField] private Vector3 OffsetPos;
 
-    [SerializeField] private Vector3 ExpandedCarve;
-
     private Vector3 placedPos;
 
     private Rigidbody _rigidbody;
@@ -26,20 +23,20 @@ public class BrickController : MonoBehaviour
     private BoxCollider _boxCollider;
 
     private bool isPlaced;
-    [SerializeField] private bool isHeld = false;
+    private bool isHeld = false;
     private bool isPlacing;
 
-    [SerializeField] private int DefaultLayer, BrickLayer;
+    [SerializeField] private int DefaultLayer, BrickLayer, PlaceLayer;
         
     [SerializeField] private LayerMask BrickMask;
 
     [SerializeField] private BrickDataSO _brickData;
 
-    private NavMeshObstacle brickObstacle;
+    //private NavMeshObstacle brickObstacle;
 
     private bool lockBrick;
 
-    private CompanionController _companionController;
+    //private CompanionController _companionController;
 
     [Header("Brick-hover variables")]
     [SerializeField] private float HoverHeight;
@@ -70,11 +67,11 @@ public class BrickController : MonoBehaviour
 
         if (gameObject.layer != 9)
         {
-            _companionController = GameObject.Find("Tiny").GetComponent<CompanionController>();
+            //_companionController = GameObject.Find("Tiny").GetComponent<CompanionController>();
 
-            _companionController.CurrentBricks.Add(gameObject);
+            //_companionController.CurrentBricks.Add(gameObject);
 
-            brickObstacle = GetComponent<NavMeshObstacle>();
+            //brickObstacle = GetComponent<NavMeshObstacle>();
         }
     }
 
@@ -100,6 +97,14 @@ public class BrickController : MonoBehaviour
     public void SetBrickLayer()
     {
         gameObject.layer = BrickLayer;
+    }
+
+    /// <summary>
+    /// A function that sets the brick's layer to the placing plane
+    /// </summary>
+    public void SetPlacingLayer()
+    {
+        gameObject.layer = PlaceLayer;
     }
 
     /// <summary>
@@ -169,7 +174,7 @@ public class BrickController : MonoBehaviour
 
         _boxCollider.isTrigger = true;
 
-        brickObstacle.enabled = false; 
+        //brickObstacle.enabled = false; 
 
         SetDefaultLayer();
     }
@@ -185,7 +190,7 @@ public class BrickController : MonoBehaviour
 
         _boxCollider.isTrigger = false;
 
-        brickObstacle.enabled = true;
+        //brickObstacle.enabled = true;
 
         SetBrickLayer();
     }
@@ -257,9 +262,9 @@ public class BrickController : MonoBehaviour
         {
             lockBrick = true;
 
-            brickObstacle.size = ExpandedCarve;
+            //brickObstacle.size = ExpandedCarve;
 
-            _companionController.RemoveBrickFromRange(gameObject);
+            //_companionController.RemoveBrickFromRange(gameObject);
 
             if (_brickData.BrickType != BrickType.OneByOne)
             {

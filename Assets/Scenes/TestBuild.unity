@@ -1287,10 +1287,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1559,10 +1558,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -2155,7 +2153,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909716391945268610}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 1, y: 1, z: 1}
@@ -2247,10 +2245,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -2273,10 +2270,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -2426,13 +2422,14 @@ MonoBehaviour:
   CastDistance: 100
   LevelMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 1216
   BrickMask:
     serializedVersion: 2
     m_Bits: 128
   OutlineMask:
     serializedVersion: 2
     m_Bits: 256
+  PlaneLayer: 6
   _brickController: {fileID: 0}
   _mainCameraController: {fileID: 7915951627122527505}
   _instructionCameraController: {fileID: 2701380186063930150}
@@ -2682,9 +2679,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.279999
       objectReference: {fileID: 0}
-    - target: {fileID: 8479979054448567259, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
+    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: YOffset
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: HoverSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: PlaceLayer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
       propertyPath: SlerpSpeed
@@ -2693,6 +2698,10 @@ PrefabInstance:
     - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
       propertyPath: FollowSpeed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
+      propertyPath: HoverHeight
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
       propertyPath: ExpandedCarve.x
@@ -2793,7 +2802,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2220645055853836487}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 1, y: 1, z: 1}
@@ -3115,10 +3124,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -3186,10 +3194,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -3518,10 +3525,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -3640,7 +3646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!208 &3839834010206608479
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -3648,7 +3654,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8139607377000214279}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 1, y: 1, z: 1}
@@ -3758,10 +3764,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -4006,10 +4011,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -4041,7 +4045,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927162092139614176}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 1, y: 1, z: 1}
@@ -4113,10 +4117,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -4257,38 +4260,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8097194860429461970}
     m_Modifications:
-    - target: {fileID: 3043351060695395608, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: YOffset
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: HoverSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: HoverHeight
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: MouseSlerpSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: HighlightedSlerp
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: HighlightedHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: HighlightedHeight.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4784314043413058560, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4340,6 +4311,10 @@ PrefabInstance:
     - target: {fileID: 4800261735995949311, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754603995442694059, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7715893645898279683, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
       propertyPath: m_Name
@@ -4525,10 +4500,9 @@ MonoBehaviour:
   YOffset: 3
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0
@@ -5158,6 +5132,22 @@ PrefabInstance:
       value: Green1x1Brick
       objectReference: {fileID: 0}
     - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
+      propertyPath: YOffset
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
+      propertyPath: HoverSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
+      propertyPath: PlaceLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
+      propertyPath: HoverHeight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
       propertyPath: ExpandedCarve.x
       value: 5
       objectReference: {fileID: 0}
@@ -5237,6 +5227,22 @@ PrefabInstance:
     - target: {fileID: 1334881262372453901, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: m_Name
       value: Blue1x1Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
+      propertyPath: YOffset
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
+      propertyPath: HoverSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
+      propertyPath: PlaceLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
+      propertyPath: HoverHeight
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: ExpandedCarve.x
@@ -6096,7 +6102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a83c0c5a99b8344d89e3588f080a927, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1414797800409928241, guid: 2a83c0c5a99b8344d89e3588f080a927, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7350,10 +7356,9 @@ MonoBehaviour:
   YOffset: 4
   SlerpSpeed: 0
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 0, y: 0, z: 0}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 0
+  PlaceLayer: 0
   BrickMask:
     serializedVersion: 2
     m_Bits: 0

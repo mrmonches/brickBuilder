@@ -8989,7 +8989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a83c0c5a99b8344d89e3588f080a927, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1414797800409928241, guid: 2a83c0c5a99b8344d89e3588f080a927, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9497,6 +9497,7 @@ MonoBehaviour:
   OutlineMask:
     serializedVersion: 2
     m_Bits: 256
+  PlaneLayer: 0
   _brickController: {fileID: 0}
   _mainCameraController: {fileID: 477083082263299355}
   _instructionCameraController: {fileID: 5636490702107560748}

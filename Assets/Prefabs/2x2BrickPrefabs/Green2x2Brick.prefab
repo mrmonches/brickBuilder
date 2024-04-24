@@ -174,25 +174,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6088998760030693225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46659565c8f53164ab80f26caed7074f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
-  YOffset: 3
+  YOffset: 1.2
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 8, y: 8, z: 2}
-  isHeld: 0
   DefaultLayer: 0
   BrickLayer: 7
+  PlaceLayer: 6
   BrickMask:
     serializedVersion: 2
     m_Bits: 1152
   _brickData: {fileID: 11400000, guid: d24e7f248b85e194d8803665096ac00c, type: 2}
-  HoverHeight: 0
-  HoverSpeed: 0
+  HoverHeight: 0.25
+  HoverSpeed: 10
 --- !u!208 &2869867817323058687
 NavMeshObstacle:
   m_ObjectHideFlags: 0
