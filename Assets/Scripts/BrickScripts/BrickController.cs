@@ -41,8 +41,9 @@ public class BrickController : MonoBehaviour
     //private CompanionController _companionController;
 
     [Header("Brick-hover variables")]
-    [SerializeField] private float HoverHeight;
+    [SerializeField] private float HoverAdjust;
     [SerializeField] private float HoverSpeed;
+    private float hoverHeight;
 
     private Vector3 hoverPos;
 
@@ -111,13 +112,11 @@ public class BrickController : MonoBehaviour
 
     /// <summary>
     /// A function that returns an adjusted mouse position
+    /// Allows bricks to float above or beside where the mouse is pointed at
     /// </summary>
     /// <returns></returns> Returns the adjusted mouse position
     private Vector3 AdjustedMousePos()
     {
-        //return new Vector3(_playerController.GetSelectedMapPosition().x, _playerController.GetSelectedMapPosition().y
-        //    + YOffset, _playerController.GetSelectedMapPosition().z);
-
         return new Vector3(_playerController.GetSelectedMapPosition().x + BrickOffset.x, 
             _playerController.GetSelectedMapPosition().y + BrickOffset.y, _playerController.GetSelectedMapPosition().z
             + BrickOffset.z);
@@ -180,8 +179,6 @@ public class BrickController : MonoBehaviour
 
         _boxCollider.isTrigger = true;
 
-        //brickObstacle.enabled = false; 
-
         SetDefaultLayer();
     }
 
@@ -196,8 +193,6 @@ public class BrickController : MonoBehaviour
 
         _boxCollider.isTrigger = false;
 
-        //brickObstacle.enabled = true;
-
         SetBrickLayer();
     }
 
@@ -210,6 +205,8 @@ public class BrickController : MonoBehaviour
         if (!isHovering)
         {
             isHovering = true;
+
+            hoverHeight = transform.position.y + HoverAdjust;
 
             DisableGravity();
 
@@ -244,7 +241,7 @@ public class BrickController : MonoBehaviour
     /// </summary>
     private void HoverPosition()
     {
-        hoverPos = new Vector3(transform.position.x, transform.position.y + HoverHeight, transform.position.z);
+        hoverPos = new Vector3(transform.position.x, hoverHeight, transform.position.z);
     }
 
     /// <summary>
@@ -260,6 +257,8 @@ public class BrickController : MonoBehaviour
 
         if (isHovering)
         {
+            HoverPosition();
+
             HoverSlerp();
         }
 

@@ -36,7 +36,10 @@ public class PlayerController : MonoBehaviour
     private OutlineController _outlineController;
 
     // Camera Settings
-    [SerializeField] private CameraController _mainCameraController, _instructionCameraController;
+    //[SerializeField] private CameraController _mainCameraController, _instructionCameraController;
+
+    // Platform Settings
+    [SerializeField] private PlatformController _mainPlatform, _instructionPlatform;
 
     /// <summary>
     /// A function that runs when the object is awake
@@ -111,9 +114,21 @@ public class PlayerController : MonoBehaviour
     {
         //if (!_mainCameraController.IsMoving && !_instructionCameraController.IsMoving)
         //{
-            _mainCameraController.CameraShift();
-            _instructionCameraController.CameraShift();
+        //_mainCameraController.CameraShift();
+        //_instructionCameraController.CameraShift();
         //}
+
+        //if (!_mainPlatform.IsRotating && !_instructionPlatform.IsRotating)
+        //{
+        //    _mainPlatform.OnRotate();
+        //    //_instructionPlatform.OnRotate();
+        //}
+
+        if (!_mainPlatform.IsRotating)
+        {
+            _mainPlatform.OnRotate();
+            //_instructionPlatform.OnRotate();
+        }
     }
 
     /// <summary>
