@@ -150,8 +150,7 @@ MonoBehaviour:
   YOffset: 1.2
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0, z: 0}
-  ExpandedCarve: {x: 5, y: 5, z: 2}
-  isHeld: 0
+  BrickOffset: {x: -1, y: 1.2, z: -1}
   DefaultLayer: 0
   BrickLayer: 7
   PlaceLayer: 6

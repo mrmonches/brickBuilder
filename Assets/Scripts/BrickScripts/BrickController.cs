@@ -16,6 +16,8 @@ public class BrickController : MonoBehaviour
     [SerializeField] private float SlerpSpeed;
     [SerializeField] private Vector3 OffsetPos;
 
+    [SerializeField] private Vector3 BrickOffset;
+
     private Vector3 placedPos;
 
     private Rigidbody _rigidbody;
@@ -113,8 +115,12 @@ public class BrickController : MonoBehaviour
     /// <returns></returns> Returns the adjusted mouse position
     private Vector3 AdjustedMousePos()
     {
-        return new Vector3(_playerController.GetSelectedMapPosition().x, _playerController.GetSelectedMapPosition().y
-            + YOffset, _playerController.GetSelectedMapPosition().z);
+        //return new Vector3(_playerController.GetSelectedMapPosition().x, _playerController.GetSelectedMapPosition().y
+        //    + YOffset, _playerController.GetSelectedMapPosition().z);
+
+        return new Vector3(_playerController.GetSelectedMapPosition().x + BrickOffset.x, 
+            _playerController.GetSelectedMapPosition().y + BrickOffset.y, _playerController.GetSelectedMapPosition().z
+            + BrickOffset.z);
     }
 
     /// <summary>
