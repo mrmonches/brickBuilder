@@ -174,7 +174,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6088998760030693225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46659565c8f53164ab80f26caed7074f, type: 3}
   m_Name: 
@@ -183,6 +183,7 @@ MonoBehaviour:
   YOffset: 1.2
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0.15, z: 0}
+  BrickOffset: {x: -2, y: 1.2, z: -2}
   DefaultLayer: 0
   BrickLayer: 7
   PlaceLayer: 6
@@ -190,7 +191,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1152
   _brickData: {fileID: 11400000, guid: d24e7f248b85e194d8803665096ac00c, type: 2}
-  HoverHeight: 0.25
+  HoverAdjust: 0.2
   HoverSpeed: 10
 --- !u!208 &2869867817323058687
 NavMeshObstacle:
@@ -199,7 +200,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6088998760030693225}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 3.338, y: 3.338, z: 1}
