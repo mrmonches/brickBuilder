@@ -3,7 +3,8 @@
 // Author : Nolan J. Stein
 // Creation Date : March 23, 2024
 //
-// Brief Description : This is a script that controls the camera position.
+// Brief Description : This is a script that controls the camera position. 
+// This script is no longer being used.
 *****************************************************************************/
 using UnityEngine;
 
@@ -27,7 +28,7 @@ public class CameraController : MonoBehaviour
 
     public void CameraShift()
     {
-        transform.RotateAround(BuildingPlane.transform.position, Vector3.up, CameraAngle);
+        //transform.RotateAround(BuildingPlane.transform.position, Vector3.up, CameraAngle);
 
         //_isMoving = true;
 

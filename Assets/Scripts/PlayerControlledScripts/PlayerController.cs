@@ -35,9 +35,6 @@ public class PlayerController : MonoBehaviour
     // Outline Settings
     private OutlineController _outlineController;
 
-    // Camera Settings
-    //[SerializeField] private CameraController _mainCameraController, _instructionCameraController;
-
     // Platform Settings
     [SerializeField] private PlatformController _mainPlatform, _instructionPlatform;
 
@@ -112,22 +109,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCameraControl()
     {
-        //if (!_mainCameraController.IsMoving && !_instructionCameraController.IsMoving)
-        //{
-        //_mainCameraController.CameraShift();
-        //_instructionCameraController.CameraShift();
-        //}
-
-        //if (!_mainPlatform.IsRotating && !_instructionPlatform.IsRotating)
-        //{
-        //    _mainPlatform.OnRotate();
-        //    //_instructionPlatform.OnRotate();
-        //}
-
-        if (!_mainPlatform.IsRotating)
+        if (!_mainPlatform.IsRotating && !_instructionPlatform.IsRotating)
         {
             _mainPlatform.OnRotate();
-            //_instructionPlatform.OnRotate();
+            _instructionPlatform.OnRotate();
         }
     }
 

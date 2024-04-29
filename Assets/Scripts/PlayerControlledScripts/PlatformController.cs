@@ -1,5 +1,12 @@
+/*****************************************************************************
+// File Name : PlatformController.cs
+// Author : Nolan J. Stein
+// Creation Date : April 28, 2024
+//
+// Brief Description : This is a script that controls the platform's rotation.
+// This script's functions replace what CameraController previously did.
+*****************************************************************************/
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformController : MonoBehaviour
@@ -13,12 +20,18 @@ public class PlatformController : MonoBehaviour
 
     public bool IsRotating { get => isRotating; set => isRotating = value; }
 
+    /// <summary>
+    /// A function that ensures that values are set correctly.
+    /// </summary>
     private void Awake()
     {
         isRotating = false;
         currentPos = 0;
     }
 
+    /// <summary>
+    /// A function that manages the calling and setting of rotating the platform.
+    /// </summary>
     public void OnRotate()
     {
         isRotating = true;
@@ -36,8 +49,7 @@ public class PlatformController : MonoBehaviour
     }
 
     /// <summary>
-    /// A function that allows the platform to slerp between two points
-    /// Currently not in use
+    /// A function that allows the platform to slerp between two points.
     /// </summary>
     /// <param name="pos1"></param> Function's starting position
     /// <param name="pos2"></param> Function's ending position
