@@ -1244,22 +1244,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yellow2x2Brick
       objectReference: {fileID: 0}
-    - target: {fileID: 8781560460089955421, guid: 45283829a8ef5ec4182e58f31976abfe, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781560460089955421, guid: 45283829a8ef5ec4182e58f31976abfe, type: 3}
-      propertyPath: BrickOffset.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781560460089955421, guid: 45283829a8ef5ec4182e58f31976abfe, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781560460089955421, guid: 45283829a8ef5ec4182e58f31976abfe, type: 3}
-      propertyPath: BrickOffset.z
-      value: -2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1466,22 +1450,6 @@ PrefabInstance:
     - target: {fileID: 1022862657211512907, guid: c47963c4b2efbd54990707ccd0be2455, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562720724376093565, guid: c47963c4b2efbd54990707ccd0be2455, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562720724376093565, guid: c47963c4b2efbd54990707ccd0be2455, type: 3}
-      propertyPath: BrickOffset.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562720724376093565, guid: c47963c4b2efbd54990707ccd0be2455, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8562720724376093565, guid: c47963c4b2efbd54990707ccd0be2455, type: 3}
-      propertyPath: BrickOffset.z
-      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2708,32 +2676,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!208 &1908672171776516054
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909716391945268610}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 1, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0
---- !u!1 &1909716391945268610 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2713815562520855854, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-  m_PrefabInstance: {fileID: 2690545065984171059}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1927162092139614176 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5781560553381869303, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-  m_PrefabInstance: {fileID: 5422497112939545526}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1931986146733531351 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9131409215746803837, guid: f9f01d4ea01beaa41a70a60b74a8a507, type: 3}
@@ -2895,11 +2837,6 @@ Transform:
   m_Father: {fileID: 5197453280373495084}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2220645055853836487 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6076426748890513872, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-  m_PrefabInstance: {fileID: 5369026357578184983}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2241732504370684572
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,44 +3176,12 @@ PrefabInstance:
       value: -2.279999
       objectReference: {fileID: 0}
     - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: YOffset
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: HoverSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: PlaceLayer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: SlerpSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
       propertyPath: FollowSpeed
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
       propertyPath: HoverHeight
       value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: BrickOffset.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: BrickOffset.z
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
       propertyPath: ExpandedCarve.x
@@ -3290,25 +3195,10 @@ PrefabInstance:
       propertyPath: ExpandedCarve.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: BrickMask.m_Bits
-      value: 1152
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: BrickLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757329826433870654, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      propertyPath: DefaultLayer.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2713815562520855854, guid: cfae84680ab443e47b460d24404fec57, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1908672171776516054}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfae84680ab443e47b460d24404fec57, type: 3}
 --- !u!222 &2722614469282268251
 CanvasRenderer:
@@ -3350,22 +3240,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!208 &2792925247979613529
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2220645055853836487}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 1, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &2794987958004119351
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,22 +3974,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3230735979085570292}
     m_Modifications:
-    - target: {fileID: 1581692974655809705, guid: 526aa9d39c905cf4ba16c51cf46593c0, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1581692974655809705, guid: 526aa9d39c905cf4ba16c51cf46593c0, type: 3}
-      propertyPath: BrickOffset.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1581692974655809705, guid: 526aa9d39c905cf4ba16c51cf46593c0, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1581692974655809705, guid: 526aa9d39c905cf4ba16c51cf46593c0, type: 3}
-      propertyPath: BrickOffset.z
-      value: -2
-      objectReference: {fileID: 0}
     - target: {fileID: 2661275623752728579, guid: 526aa9d39c905cf4ba16c51cf46593c0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4221,22 +4079,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!208 &3839834010206608479
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8139607377000214279}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 1, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0
 --- !u!1 &3855334778083982898
 GameObject:
   m_ObjectHideFlags: 0
@@ -4387,22 +4229,6 @@ PrefabInstance:
     - target: {fileID: 3470301750276601349, guid: 2cf97446e343dcb408ccbcb98e79d238, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576400895401759179, guid: 2cf97446e343dcb408ccbcb98e79d238, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576400895401759179, guid: 2cf97446e343dcb408ccbcb98e79d238, type: 3}
-      propertyPath: BrickOffset.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576400895401759179, guid: 2cf97446e343dcb408ccbcb98e79d238, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576400895401759179, guid: 2cf97446e343dcb408ccbcb98e79d238, type: 3}
-      propertyPath: BrickOffset.z
-      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5779220025130572668, guid: 2cf97446e343dcb408ccbcb98e79d238, type: 3}
       propertyPath: m_Name
@@ -4564,22 +4390,6 @@ MonoBehaviour:
   CameraTarget: {fileID: 4581238889052733096}
   HoldingPos: {fileID: 7509698981294017375}
   LookSpeed: 0.5
---- !u!208 &4245838019722573915
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927162092139614176}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 1, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0
 --- !u!156049354 &4256895272278828506
 Grid:
   m_ObjectHideFlags: 0
@@ -4787,10 +4597,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8097194860429461970}
     m_Modifications:
-    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 4784314043413058560, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4854,10 +4660,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5754603995442694059, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3839834010206608479}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
 --- !u!65 &4559722726194184819
 BoxCollider:
@@ -5001,22 +4804,6 @@ PrefabInstance:
     - target: {fileID: 1004712056963342832, guid: 15f90454039ffb7409ef75ed91fa5806, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4847349966665467327, guid: 15f90454039ffb7409ef75ed91fa5806, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4847349966665467327, guid: 15f90454039ffb7409ef75ed91fa5806, type: 3}
-      propertyPath: BrickOffset.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4847349966665467327, guid: 15f90454039ffb7409ef75ed91fa5806, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4847349966665467327, guid: 15f90454039ffb7409ef75ed91fa5806, type: 3}
-      propertyPath: BrickOffset.z
-      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5572776556304179955, guid: 15f90454039ffb7409ef75ed91fa5806, type: 3}
       propertyPath: m_Name
@@ -5680,36 +5467,8 @@ PrefabInstance:
       value: Green1x1Brick
       objectReference: {fileID: 0}
     - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: YOffset
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: HoverSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: PlaceLayer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
       propertyPath: HoverHeight
       value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: BrickOffset.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: BrickOffset.z
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
       propertyPath: ExpandedCarve.x
@@ -5723,25 +5482,10 @@ PrefabInstance:
       propertyPath: ExpandedCarve.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: BrickMask.m_Bits
-      value: 1152
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: BrickLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535910708006130181, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      propertyPath: DefaultLayer.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6076426748890513872, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2792925247979613529}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3eb88f29d7aefeb4ea50d1ab44d5664c, type: 3}
 --- !u!65 &5376720024059824467
 BoxCollider:
@@ -5793,36 +5537,8 @@ PrefabInstance:
       value: Blue1x1Brick
       objectReference: {fileID: 0}
     - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: YOffset
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: HoverSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: PlaceLayer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: HoverHeight
       value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: BrickOffset.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: BrickOffset.z
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: ExpandedCarve.x
@@ -5835,18 +5551,6 @@ PrefabInstance:
     - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: ExpandedCarve.z
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: BrickMask.m_Bits
-      value: 1152
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: BrickLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: DefaultLayer.m_Bits
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7155045616928034111, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5899,10 +5603,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5781560553381869303, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4245838019722573915}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
 --- !u!1 &5433814175095501955
 GameObject:
@@ -7230,22 +6931,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8783909116785456383, guid: dd276131825e78a4c808a836bdb6abe6, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8783909116785456383, guid: dd276131825e78a4c808a836bdb6abe6, type: 3}
-      propertyPath: BrickOffset.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8783909116785456383, guid: dd276131825e78a4c808a836bdb6abe6, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8783909116785456383, guid: dd276131825e78a4c808a836bdb6abe6, type: 3}
-      propertyPath: BrickOffset.z
-      value: -2
-      objectReference: {fileID: 0}
     - target: {fileID: 8917300357145769646, guid: dd276131825e78a4c808a836bdb6abe6, type: 3}
       propertyPath: m_Name
       value: Blue2x2Brick
@@ -8162,11 +7847,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!1 &8139607377000214279 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5754603995442694059, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
-  m_PrefabInstance: {fileID: 4551384473955526828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &8166689293650944265
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8388,22 +8068,6 @@ PrefabInstance:
     - target: {fileID: 2567247889983720773, guid: 69ddcc662b260cd4dac876ced18e4eb0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6228987712354624564, guid: 69ddcc662b260cd4dac876ced18e4eb0, type: 3}
-      propertyPath: HoverAdjust
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6228987712354624564, guid: 69ddcc662b260cd4dac876ced18e4eb0, type: 3}
-      propertyPath: BrickOffset.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6228987712354624564, guid: 69ddcc662b260cd4dac876ced18e4eb0, type: 3}
-      propertyPath: BrickOffset.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6228987712354624564, guid: 69ddcc662b260cd4dac876ced18e4eb0, type: 3}
-      propertyPath: BrickOffset.z
-      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7750362161105645496, guid: 69ddcc662b260cd4dac876ced18e4eb0, type: 3}
       propertyPath: m_RootOrder

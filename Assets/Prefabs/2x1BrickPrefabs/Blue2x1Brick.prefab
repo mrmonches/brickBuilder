@@ -151,6 +151,7 @@ MonoBehaviour:
   YOffset: 1.2
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0.15, z: 0}
+  BrickOffset: {x: -2, y: 1.2, z: -2}
   DefaultLayer: 0
   BrickLayer: 7
   PlaceLayer: 6
@@ -158,7 +159,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1152
   _brickData: {fileID: 11400000, guid: 024a5ba47cda6774683d28856d75600e, type: 2}
-  HoverHeight: 0.25
+  HoverAdjust: 0.2
   HoverSpeed: 10
 --- !u!208 &6464341150385733394
 NavMeshObstacle:

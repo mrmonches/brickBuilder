@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 2755387876976962528}
   - component: {fileID: 990046311389378389}
   - component: {fileID: 2016063685626231860}
-  - component: {fileID: 8809050142737075467}
   m_Layer: 7
   m_Name: 1x1Model
   m_TagString: Brick
@@ -180,32 +179,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
-  YOffset: 3
+  YOffset: 1.2
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0, z: 0}
-  ExpandedCarve: {x: 5, y: 5, z: 2}
-  isHeld: 0
+  BrickOffset: {x: -1, y: 1.2, z: -1}
   DefaultLayer: 0
   BrickLayer: 7
+  PlaceLayer: 6
   BrickMask:
     serializedVersion: 2
     m_Bits: 1152
   _brickData: {fileID: 11400000, guid: 40645169f2b63184cac8db80be501fde, type: 2}
-  HoverHeight: 0
-  HoverSpeed: 0
---- !u!208 &8809050142737075467
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5781560553381869303}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 1, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0
+  HoverAdjust: 0.2
+  HoverSpeed: 10

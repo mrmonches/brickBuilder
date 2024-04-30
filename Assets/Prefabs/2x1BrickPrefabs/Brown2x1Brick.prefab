@@ -148,19 +148,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
-  YOffset: 3
+  YOffset: 1.2
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  ExpandedCarve: {x: 5, y: 8, z: 2}
-  isHeld: 0
+  BrickOffset: {x: -2, y: 1.2, z: -2}
   DefaultLayer: 0
   BrickLayer: 7
+  PlaceLayer: 6
   BrickMask:
     serializedVersion: 2
     m_Bits: 1152
   _brickData: {fileID: 11400000, guid: 43d0eed4b1d12a54c9ba3ec6d9b493fd, type: 2}
-  HoverHeight: 0
-  HoverSpeed: 0
+  HoverAdjust: 0.2
+  HoverSpeed: 10
 --- !u!208 &6094446776273076990
 NavMeshObstacle:
   m_ObjectHideFlags: 0
