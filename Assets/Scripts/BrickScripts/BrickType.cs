@@ -13,7 +13,9 @@ public enum BrickType
 {
     OneByOne,
     TwoByOne,
-    TwoByTwo
+    TwoByTwo,
+    FourByOne,
+    TenByOne
 }
 
 /// <summary>
