@@ -193,6 +193,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: 8e43ad0fba3fd0242afb1087811f5387, type: 2}
   HoverAdjust: 0.2
   HoverSpeed: 10
+  BrickPlaceClip: {fileID: 8300000, guid: 400252ecd7247ae4191c0305467cfe9e, type: 3}
+  BrickOutlineClip: {fileID: 8300000, guid: 5d70af03fa89bdf4dbeb1b7aefcba0f2, type: 3}
 --- !u!208 &8720592626556345034
 NavMeshObstacle:
   m_ObjectHideFlags: 0

@@ -49,6 +49,11 @@ public class BrickController : MonoBehaviour
 
     private bool isHovering;
 
+    [Header("Brick sound clips")]
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip BrickPlaceClip;
+    [SerializeField] private AudioClip BrickOutlineClip;
+
     public bool IsPlaced { get => isPlaced; set => isPlaced = value; }
     public bool IsHeld { get => isHeld; set => isHeld = value; }
     public Rigidbody Rigidbody { get => _rigidbody; set => _rigidbody = value; }
@@ -68,14 +73,7 @@ public class BrickController : MonoBehaviour
 
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        if (gameObject.layer != 9)
-        {
-            //_companionController = GameObject.Find("Tiny").GetComponent<CompanionController>();
-
-            //_companionController.CurrentBricks.Add(gameObject);
-
-            //brickObstacle = GetComponent<NavMeshObstacle>();
-        }
+        _audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -149,6 +147,7 @@ public class BrickController : MonoBehaviour
         if (!IsPlacing)
         {
             IsPlacing = true;
+            _audioSource.PlayOneShot(BrickOutlineClip);
         }
     }
 
@@ -267,9 +266,7 @@ public class BrickController : MonoBehaviour
         {
             lockBrick = true;
 
-            //brickObstacle.size = ExpandedCarve;
-
-            //_companionController.RemoveBrickFromRange(gameObject);
+            _audioSource.PlayOneShot(BrickPlaceClip);
 
             if (_brickData.BrickType != BrickType.OneByOne)
             {

@@ -1821,6 +1821,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: d7e2a1964e7d88d47b2e9ab5cfdc6e37, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!65 &828427336019842000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2093,6 +2095,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: c62707e40b41f63448da0124a3cdbcc6, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!1 &1243703769238522564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2759,6 +2763,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: f22ac39b9e80d184d8b96c60b8abf7dd, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!114 &2062971102432445291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,6 +2791,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: 843abebd66b1fb249b89fc150d0a4b14, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!4 &2120958957063508233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8726194354057787811, guid: f9f01d4ea01beaa41a70a60b74a8a507, type: 3}
@@ -3563,6 +3571,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: bdb760e4b5f0e9d4cac884d12a222dd0, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!4 &3230735979085570292
 Transform:
   m_ObjectHideFlags: 0
@@ -3634,6 +3644,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: 4c3032eb917176c458ed2003780dbca7, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!1 &3438983679315994944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,6 +3978,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: fa9e2c4c3d1ea9345ab1535ab9b2102f, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!1001 &3800425626697107680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4189,6 +4203,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: d24e7f248b85e194d8803665096ac00c, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!1 &4102379292443097220
 GameObject:
   m_ObjectHideFlags: 0
@@ -4372,6 +4388,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: 40645169f2b63184cac8db80be501fde, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!114 &4224170060738778838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4463,6 +4481,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: 024a5ba47cda6774683d28856d75600e, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!1 &4371106980452580609
 GameObject:
   m_ObjectHideFlags: 0
@@ -4597,6 +4617,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8097194860429461970}
     m_Modifications:
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: BrickPlaceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 400252ecd7247ae4191c0305467cfe9e, type: 3}
+    - target: {fileID: 3503472953451482012, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
+      propertyPath: BrickOutlineClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5d70af03fa89bdf4dbeb1b7aefcba0f2, type: 3}
     - target: {fileID: 4784314043413058560, guid: ae393d61c9a783144bc08f6110dc63e9, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4844,6 +4872,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: 491d566560f1c554181753a35e473b6c, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!1001 &4610341347409759319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5535,22 +5565,6 @@ PrefabInstance:
     - target: {fileID: 1334881262372453901, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: m_Name
       value: Blue1x1Brick
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: HoverHeight
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: ExpandedCarve.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: ExpandedCarve.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016063685626231860, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
-      propertyPath: ExpandedCarve.z
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7155045616928034111, guid: 7fefb3c30bf7d164f8a2845d999f6d8c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7180,6 +7194,7 @@ GameObject:
   - component: {fileID: 2166432855614864249}
   - component: {fileID: 3666179365163062946}
   - component: {fileID: 5459976045870712829}
+  - component: {fileID: 7432890800670476725}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -7187,6 +7202,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &7432890800670476725
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432890800670476724}
+  m_Enabled: 1
 --- !u!54 &7433245874709471395
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7664,6 +7687,8 @@ MonoBehaviour:
   _brickData: {fileID: 11400000, guid: 521324a63b476f44a8bc74d31e2e5cd4, type: 2}
   HoverAdjust: 0
   HoverSpeed: 0
+  BrickPlaceClip: {fileID: 0}
+  BrickOutlineClip: {fileID: 0}
 --- !u!1 &7868509399332214935
 GameObject:
   m_ObjectHideFlags: 0
