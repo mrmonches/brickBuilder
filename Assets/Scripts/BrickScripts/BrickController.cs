@@ -139,12 +139,11 @@ public class BrickController : MonoBehaviour
         // Allows bricks to be rotated to the correct spot based on the outline
         if (_brickData.BrickType == BrickType.FourByOne || _brickData.BrickType == BrickType.TenByOne) 
         {
-            print("bitch");
-            transform.rotation = selectedSpot.GetComponent<OutlineController>().AdjustedTransform.rotation;
+            OnRotate(selectedSpot.GetComponent<OutlineController>().AdjustedTransform);
         }
         else
         {
-            transform.rotation = selectedSpot.transform.rotation;
+            OnRotate(selectedSpot.transform);
         }
 
         // Makes brick unable to be picked up
@@ -153,6 +152,11 @@ public class BrickController : MonoBehaviour
             IsPlacing = true;
             _audioSource.PlayOneShot(BrickOutlineClip);
         }
+    }
+
+    public void OnRotate(Transform pos)
+    {
+        transform.rotation = pos.rotation;
     }
 
     /// <summary>

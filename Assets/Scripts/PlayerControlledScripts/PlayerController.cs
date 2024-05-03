@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float CastDistance;
 
-    [SerializeField] private LayerMask LevelMask, BrickMask, OutlineMask;
+    [SerializeField] private LayerMask LevelMask, BrickMask, OutlineMask, AdjustmentMask;
     [SerializeField] private int PlaneLayer;
 
     // Brick Settings
@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         // If mouse is hovering over a brick and the player is not holding a brick
-        if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, BrickMask) 
+        if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, BrickMask)
             && !isHolding)
         {
             // If the brick has a BrickController component and the script doesn't have a reference for BrickController
@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
                 _outlineController = hit.rigidbody.gameObject.GetComponent<OutlineController>();
             }
             // If the current hit's reference doesn't equal the current reference and the brick was marked as placing
-            else if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != _outlineController && 
+            else if (hit.rigidbody.gameObject.GetComponent<OutlineController>() != _outlineController &&
                 _brickController.IsPlacing)
             {
                 _brickController.IsPlacing = false;
@@ -213,7 +213,16 @@ public class PlayerController : MonoBehaviour
                 _brickController.GoToSelectedSpot(hit.rigidbody.gameObject);
             }
         }
-        else if (_brickController != null || _outlineController != null) 
+        else if (Physics.Raycast(SceneCamera.ScreenPointToRay(mousePosition), out hit, CastDistance, AdjustmentMask) &&
+            isHolding)
+        {
+            if (_brickController != null && _brickController.BrickData.BrickType != BrickType.OneByOne &&
+                _brickController.BrickData.BrickType != BrickType.TwoByTwo)
+            {
+                _brickController.OnRotate(hit.transform);
+            }
+        }
+        else if (_brickController != null || _outlineController != null)
         {
             // Used as a catch statement so that the brick isn't infinitely placing
             if (_brickController != null && _brickController.IsPlacing && _brickController.IsHeld)
