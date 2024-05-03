@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8169198061895452067}
   - component: {fileID: 2012988016424089071}
   - component: {fileID: 1671431396487489597}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Green4x2Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ MonoBehaviour:
   _playerController: {fileID: 0}
   YOffset: 1.2
   SlerpSpeed: 25
-  OffsetPos: {x: 0, y: 0.15, z: 0}
+  OffsetPos: {x: 0, y: 0.24, z: 0}
   BrickOffset: {x: -4, y: 1.2, z: -4}
   DefaultLayer: 0
   BrickLayer: 7

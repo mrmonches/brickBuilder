@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8294329550154237970}
   - component: {fileID: 8883288453515664726}
   - component: {fileID: 5705005471804883617}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green4x2Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutlineData: {fileID: 11400000, guid: 9c04b34497869344baf45f51eca83511, type: 2}
+  _adjustedTransform: {fileID: 0}

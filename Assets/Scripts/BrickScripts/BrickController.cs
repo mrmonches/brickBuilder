@@ -12,6 +12,8 @@ public class BrickController : MonoBehaviour
 {
     [SerializeField] private PlayerController _playerController;
 
+    private BrickController _brickController;
+
     [SerializeField] private float YOffset;
     [SerializeField] private float SlerpSpeed;
     [SerializeField] private Vector3 OffsetPos;
@@ -71,6 +73,8 @@ public class BrickController : MonoBehaviour
 
         _boxCollider = GetComponent<BoxCollider>();
 
+        _brickController = GetComponent<BrickController>();
+
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
         _audioSource = GetComponent<AudioSource>();
@@ -128,17 +132,9 @@ public class BrickController : MonoBehaviour
     {
         placedPos = selectedSpot.transform.position;
 
-        // Fix to a bug where bricks other than OneByOne's would be placed into the building plane
-        if (_brickData.BrickType != BrickType.OneByOne)
-        {
-            transform.position = Vector3.Slerp(transform.position, selectedSpot.transform.position + OffsetPos, 
+
+        transform.position = Vector3.Slerp(transform.position, selectedSpot.transform.position + OffsetPos, 
                 SlerpSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position = Vector3.Slerp(transform.position, selectedSpot.transform.position, 
-                SlerpSpeed * Time.deltaTime);
-        }
 
         // Allows bricks to be rotated to the correct spot based on the outline
         if (_brickData.BrickType != BrickType.FourByOne) 
@@ -274,15 +270,11 @@ public class BrickController : MonoBehaviour
             lockBrick = true;
 
             _audioSource.PlayOneShot(BrickPlaceClip);
+            
+            transform.position = placedPos + OffsetPos;
 
-            if (_brickData.BrickType != BrickType.OneByOne)
-            {
-                transform.position = placedPos + OffsetPos;
-            }
-            else
-            {
-                transform.position = placedPos;
-            }
+            _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            _brickController.enabled = false;
         }
     }
 }

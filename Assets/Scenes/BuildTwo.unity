@@ -563,6 +563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brown4x1Brick
       objectReference: {fileID: 0}
+    - target: {fileID: 1769786487034008328, guid: 4a65bbb3e53c00644b4522e7ffa4b2f0, type: 3}
+      propertyPath: OffsetPos.y
+      value: 0.245
+      objectReference: {fileID: 0}
     - target: {fileID: 9012972441329682690, guid: 4a65bbb3e53c00644b4522e7ffa4b2f0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4961,6 +4965,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955893516}
     m_Modifications:
+    - target: {fileID: 1210833966728700050, guid: 2ab26d1ebadf645439a2ba6c82664913, type: 3}
+      propertyPath: OffsetPos.y
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 7168582901398390156, guid: 2ab26d1ebadf645439a2ba6c82664913, type: 3}
       propertyPath: m_RootOrder
       value: -1
