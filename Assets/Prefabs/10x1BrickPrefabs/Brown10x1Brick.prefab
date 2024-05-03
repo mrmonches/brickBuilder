@@ -151,7 +151,7 @@ MonoBehaviour:
   YOffset: 1.2
   SlerpSpeed: 25
   OffsetPos: {x: 0, y: 0.15, z: 0}
-  BrickOffset: {x: -10, y: 1.2, z: -10}
+  BrickOffset: {x: -2, y: 1.2, z: -2}
   DefaultLayer: 0
   BrickLayer: 7
   PlaceLayer: 6
