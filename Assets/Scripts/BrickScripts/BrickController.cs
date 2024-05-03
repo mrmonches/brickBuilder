@@ -141,7 +141,14 @@ public class BrickController : MonoBehaviour
         }
 
         // Allows bricks to be rotated to the correct spot based on the outline
-        transform.rotation = selectedSpot.transform.rotation;
+        if (_brickData.BrickType != BrickType.FourByOne) 
+        { 
+            transform.rotation = selectedSpot.transform.rotation;
+        }
+        else
+        {
+            transform.rotation = selectedSpot.GetComponent<OutlineController>().AdjustedTransform.rotation;
+        }
 
         // Makes brick unable to be picked up
         if (!IsPlacing)

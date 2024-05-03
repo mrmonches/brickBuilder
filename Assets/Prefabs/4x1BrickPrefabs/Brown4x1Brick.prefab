@@ -29,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267174584844314363}
-  m_LocalRotation: {x: 0.000000030908623, y: 0.7071068, z: 0.7071067, w: 0.000000030908616}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: -18.86, y: 1.44, z: 0.84}
   m_LocalScale: {x: 0.59907323, y: 0.59907323, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!33 &3407849414698302570
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -163,6 +163,7 @@ MonoBehaviour:
   HoverSpeed: 10
   BrickPlaceClip: {fileID: 8300000, guid: 400252ecd7247ae4191c0305467cfe9e, type: 3}
   BrickOutlineClip: {fileID: 8300000, guid: 5d70af03fa89bdf4dbeb1b7aefcba0f2, type: 3}
+  ChildTransform: {fileID: 0}
 --- !u!82 &6708065455231865566
 AudioSource:
   m_ObjectHideFlags: 0

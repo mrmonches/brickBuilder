@@ -15,6 +15,7 @@ public enum BrickType
     TwoByOne,
     TwoByTwo,
     FourByOne,
+    FourByTwo,
     TenByOne
 }
 

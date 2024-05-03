@@ -16,7 +16,11 @@ public class OutlineController : MonoBehaviour
 
     private BrickController _brickController;
 
+    [Header("Only for 4x1 Outlines")]
+    [SerializeField] private Transform _adjustedTransform;
+
     public bool OutlineCheck { get => outlineCheck; private set => outlineCheck = value; }
+    public Transform AdjustedTransform { get => _adjustedTransform; set => _adjustedTransform = value; }
 
     /// <summary>
     /// A function that will return if the brick has the same attributes as the outline.
