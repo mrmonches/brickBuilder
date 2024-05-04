@@ -19,9 +19,16 @@ public class BrickCatcher : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Brick"))
+        GameObject incomingCollision = other.gameObject;
+
+        if (incomingCollision.GetComponent<BrickController>() != null)
         {
-            other.gameObject.transform.transform.position = SpawnPoints[0].position;
+            BrickController _bc = incomingCollision.GetComponent<BrickController>();
+
+            if (!_bc.IsHeld)
+            {
+                other.gameObject.transform.transform.position = SpawnPoints[0].position;
+            }
         }
     }
 }
