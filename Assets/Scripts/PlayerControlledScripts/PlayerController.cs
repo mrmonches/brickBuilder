@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerInput _playerInput;
 
+    private bool canRotate;
+
     private InputAction select;
 
     private Vector3 mousePosition;
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
     // Platform Settings
     [SerializeField] private PlatformController _mainPlatform, _instructionPlatform;
 
+    public bool CanRotate { get => canRotate; set => canRotate = value; }
+
     /// <summary>
     /// A function that runs when the object is awake
     /// Assigns references to variables and allows player to control the game
@@ -52,6 +56,8 @@ public class PlayerController : MonoBehaviour
 
         select.started += Select_started;
         select.canceled += Select_canceled;
+
+        canRotate = true;
     }
 
 
@@ -109,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCameraControl()
     {
-        if (!_mainPlatform.IsRotating && !_instructionPlatform.IsRotating)
+        if (!_mainPlatform.IsRotating && !_instructionPlatform.IsRotating && canRotate)
         {
             _mainPlatform.OnRotate();
             _instructionPlatform.OnRotate();
