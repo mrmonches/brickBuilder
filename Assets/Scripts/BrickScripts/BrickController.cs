@@ -31,7 +31,7 @@ public class BrickController : MonoBehaviour
     private bool isPlacing;
 
     [SerializeField] private int DefaultLayer, BrickLayer, PlaceLayer;
-        
+
     [SerializeField] private LayerMask BrickMask;
 
     [SerializeField] private BrickDataSO _brickData;
@@ -119,7 +119,7 @@ public class BrickController : MonoBehaviour
     /// <returns></returns> Returns the adjusted mouse position
     private Vector3 AdjustedMousePos()
     {
-        return new Vector3(_playerController.GetSelectedMapPosition().x + BrickOffset.x, 
+        return new Vector3(_playerController.GetSelectedMapPosition().x + BrickOffset.x,
             _playerController.GetSelectedMapPosition().y + BrickOffset.y, _playerController.GetSelectedMapPosition().z
             + BrickOffset.z);
     }
@@ -133,11 +133,12 @@ public class BrickController : MonoBehaviour
         placedPos = selectedSpot.transform.position;
 
 
-        transform.position = Vector3.Slerp(transform.position, selectedSpot.transform.position + OffsetPos, 
+        transform.position = Vector3.Slerp(transform.position, selectedSpot.transform.position + OffsetPos,
                 SlerpSpeed * Time.deltaTime);
 
         // Allows bricks to be rotated to the correct spot based on the outline
-        if (_brickData.BrickType == BrickType.FourByOne || _brickData.BrickType == BrickType.TenByOne) 
+        if (_brickData.BrickType == BrickType.FourByOne || _brickData.BrickType == BrickType.TenByOne || 
+            _brickData.BrickType == BrickType.Door) 
         {
             OnRotate(selectedSpot.GetComponent<OutlineController>().AdjustedTransform);
         }

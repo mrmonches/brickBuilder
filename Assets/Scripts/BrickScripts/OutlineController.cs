@@ -16,7 +16,7 @@ public class OutlineController : MonoBehaviour
 
     private BrickController _brickController;
 
-    [Header("Only for 4x1 & 10x1 Outlines")]
+    [Header("Only for 4x1 & 10x1 & Door Outlines")]
     [SerializeField] private Transform _adjustedTransform;
 
     public bool OutlineCheck { get => outlineCheck; private set => outlineCheck = value; }

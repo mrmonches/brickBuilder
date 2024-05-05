@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5279314694a6e0741abe06538a05d7c2, type: 3}
   m_Name: GreenTenByOneBrick
   m_EditorClassIdentifier: 
-  _brickType: 5
+  _brickType: 7
   _brickColor: 2
