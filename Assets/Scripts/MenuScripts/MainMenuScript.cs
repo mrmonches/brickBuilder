@@ -62,7 +62,7 @@ public class MainMenuScript : MenuScript
     /// </summary>
     public void LoadLevelTwo()
     {
-        SceneManager.LoadScene("BuildOne");
+        SceneManager.LoadScene("BuildTwo");
     }
 
     /// <summary>
@@ -70,6 +70,6 @@ public class MainMenuScript : MenuScript
     /// </summary>
     public void LoadLevelThree()
     {
-        SceneManager.LoadScene("BuildTwo");
+        SceneManager.LoadScene("BuildThree");
     }
 }

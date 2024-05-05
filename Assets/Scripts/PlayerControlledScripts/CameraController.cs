@@ -10,21 +10,21 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float CameraAngle;
-    [SerializeField] private GameObject BuildingPlane;
+    //[SerializeField] private float CameraAngle;
+    //[SerializeField] private GameObject BuildingPlane;
 
-    [SerializeField] private Transform[] CameraPositions;
-    [SerializeField] private float RotationDuration;
-    private int currentPos = 0;
+    //[SerializeField] private Transform[] CameraPositions;
+    //[SerializeField] private float RotationDuration;
+    //private int currentPos = 0;
 
-    private bool _isMoving;
+    //private bool _isMoving;
 
-    public bool IsMoving { get => _isMoving; set => _isMoving = value; }
+    //public bool IsMoving { get => _isMoving; set => _isMoving = value; }
 
-    private void Awake()
-    {
-        _isMoving = false;
-    }
+    //private void Awake()
+    //{
+    //    _isMoving = false;
+    //}
 
     public void CameraShift()
     {
