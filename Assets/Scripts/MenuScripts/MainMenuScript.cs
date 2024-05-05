@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MenuScript
 {
-    [SerializeField] private GameObject MainMenu, LevelSelect, TutorialMenu;
+    [SerializeField] private GameObject MainMenu, LevelSelect, TutorialMenu, CreditsMenu;
 
     /// <summary>
     /// A function that sets the main menu status, based on the parameter
@@ -32,12 +32,21 @@ public class MainMenuScript : MenuScript
     }
 
     /// <summary>
-    /// A functino that sets the tutorial status, based on the parameter
+    /// A function that sets the tutorial status, based on the parameter
     /// </summary>
     /// <param name="status"></param> Parameter that indicates status
     public void TutorialStatus(bool status)
     {
         TutorialMenu.SetActive(status);
+    }
+
+    /// <summary>
+    /// A function that sets the credits status, based on the parameter
+    /// </summary>
+    /// <param name="status"></param>
+    public void CreditsStatus(bool status)
+    {
+        CreditsMenu.SetActive(status);
     }
 
     /// <summary>
